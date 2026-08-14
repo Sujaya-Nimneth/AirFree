@@ -27,6 +27,7 @@ import dev.bluehouse.bada.protocol.transport.asConnectedTransport
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -952,6 +953,14 @@ class OutboundConnectionTest {
 
                     launch {
                         inbound.state.first { it is InboundConnectionState.WaitingForUserConsent }
+                        // Consent that arrives >4s after the entry
+                        // UPGRADE_PATH_REQUEST: the pre-payload offer wait must
+                        // shrink to the 2.5s residual floor instead of re-spending
+                        // the full 5s window against a receiver that will never
+                        // offer (issue #261). delay() has at-least semantics, so
+                        // elapsed-since-request deterministically exceeds 4s and
+                        // the coerceAtLeast floor is what remains.
+                        delay(SLOW_CONSENT_DELAY_MS)
                         inbound.submitUserConsent(accepted = true)
                     }
 
@@ -968,6 +977,11 @@ class OutboundConnectionTest {
                 val log = logs.toList()
                 assertThat(log)
                     .contains("medium-upgrade: requested receiver Wi-Fi Direct upgrade (bootstrap=BLUETOOTH)")
+                assertThat(log)
+                    .contains(
+                        "medium-upgrade: waiting up to 2500ms for receiver " +
+                            "Wi-Fi Direct offer before streaming payloads",
+                    )
                 assertThat(log)
                     .contains(
                         "medium-upgrade: Wi-Fi Direct upgrade was not offered before payload streaming; " +
@@ -1750,6 +1764,15 @@ class OutboundConnectionTest {
         private const val LONG_WALLCLOCK_TIMEOUT_MS: Long = 60_000L
 
         private const val SHORT_INITIAL_HANDSHAKE_TIMEOUT_MS: Long = 50L
+
+        // Consent delay for the no-offer Bluetooth-bootstrap scenario: long
+        // enough (>2.5s, with delay()'s at-least semantics) that the 5s
+        // Wi-Fi Direct answer window counted from the entry
+        // UPGRADE_PATH_REQUEST has less than the 2.5s floor left at
+        // payload time, so the pre-payload wait deterministically lands
+        // on the floor (issue #261). 3s keeps a 500ms determinism margin
+        // while minimising the scenario's wall time.
+        private const val SLOW_CONSENT_DELAY_MS: Long = 3_000L
 
         private val MediumLadderForBluetoothFirst: MediumLadder =
             MediumLadder(listOf(Medium.BLUETOOTH, Medium.WIFI_LAN))
