@@ -122,6 +122,12 @@ class MainActivity : AppCompatActivity() {
      */
     private var mainToolbar: MaterialToolbar? = null
 
+    // NOTE (Name Card): MainActivity deliberately does NOT arm NFC reader-mode. Doing so on plain
+    // home-screen resume suppressed this phone's own card emulation (BadaTapHceService's
+    // APP_FOREGROUND tap-to-open and any wallet HCE) whenever the home screen was open. The Name
+    // Card tap works through the OS's own NFC dispatch (NDEF + AAR served by BadaNdefApduService)
+    // and needs no foreground reader here.
+
     /**
      * Bottom-nav reference kept on the instance so the [UpdateRepository]
      * state observer can also paint a small red dot on the **Settings** tab
