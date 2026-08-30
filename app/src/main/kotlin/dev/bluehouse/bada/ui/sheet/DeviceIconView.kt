@@ -19,6 +19,13 @@ import android.widget.TextView
  *
  * [peerId] carries the discovered peer's stable identity so the host can
  * route this chip's click back through the unchanged selection path.
+ * `peerNameLabel` is the centered peer-name label shown directly below the 64dp
+ * circular device icon in both the external share sheet and the in-app send
+ * screen. It renders up to two 13sp lines and inherits the activity theme's
+ * primary text color, keeping it dark in day mode and light in night mode.
+ * [SendPeerPickerController] creates the view whenever discovery renders a
+ * connectable peer. [DeviceIconViewSourceTest] guards the no-hardcoded-color
+ * contract; rendered day/night behavior still requires an on-device UI check.
  *
  * Programmatic custom view: dp sizes, text sizes, and ARGB colour components are
  * inherently numeric layout constants, so MagicNumber is suppressed.
@@ -30,7 +37,7 @@ public class DeviceIconView(
     name: String,
 ) : LinearLayout(context) {
     private val ring: RingProgressView
-    private val nameView: TextView
+    private val peerNameLabel: TextView
     private val statusView: TextView
 
     init {
@@ -44,17 +51,21 @@ public class DeviceIconView(
         val size = (64 * d).toInt()
         addView(ring, LayoutParams(size, size))
 
-        nameView =
+        // peerNameLabel — stationary, borderless peer-name text centered 6dp
+        // below the blue 64dp device circle in both send pickers. Discovery
+        // supplies the visible device name; the label itself has no tap action
+        // or animation. Its TextView default must retain Theme.Bada's stateful
+        // day/night text color, so do not replace it with a fixed ARGB value.
+        peerNameLabel =
             TextView(context).apply {
                 text = name
-                setTextColor(NAME_COLOR)
                 textSize = 13f
                 gravity = Gravity.CENTER
                 setPadding(0, (6 * d).toInt(), 0, 0)
                 maxLines = 2
                 ellipsize = android.text.TextUtils.TruncateAt.END
             }
-        addView(nameView, LayoutParams((96 * d).toInt(), LayoutParams.WRAP_CONTENT))
+        addView(peerNameLabel, LayoutParams((96 * d).toInt(), LayoutParams.WRAP_CONTENT))
 
         statusView =
             TextView(context).apply {
@@ -98,11 +109,10 @@ public class DeviceIconView(
     }
 
     public fun setName(name: String) {
-        nameView.text = name
+        peerNameLabel.text = name
     }
 
     public companion object {
-        private const val NAME_COLOR = 0xFF111114.toInt()
         private const val STATUS_COLOR = 0xFF0A84FF.toInt()
         private const val BOUNCE_DOWN_SCALE = 0.82f
         private const val BOUNCE_DOWN_MS = 90L
