@@ -1,6 +1,6 @@
 # AirFree
 
-바다는 Google Play 서비스를 사용하지 않고 **Quick Share/Nearby Share** 지원 장치와 파일을 주고받을 수 있는 Android 앱입니다.
+AirFree는 Google Play 서비스를 사용하지 않고 **Quick Share/Nearby Share** 지원 장치와 파일을 주고받을 수 있는 Android 앱입니다.
 
 해당 애플리케이션은 Android Quick Share, macOS의 NearDrop, 그리고 Windows의 Quick Share와의 상호 운용을 목표로 합니다.
 AirDrop, AWDL, iPhone 검색 및 Apple 측과의 상호 운용은 지원하지 않습니다.
@@ -23,7 +23,7 @@ AirFree는 Android 7.0 이상(`minSdk = 24`)을 지원합니다.
 
 ### 빌드된 APK 다운로드하기
 
-사용자는 다음 [GitHub 릴리스 페이지](https://github.com/AirFree/AirFree-android/releases)에서 서명된 릴리스 APK를 설치할 수 있습니다.
+사용자는 다음 [GitHub 릴리스 페이지](https://github.com/airfree/airfree-android/releases)에서 서명된 릴리스 APK를 설치할 수 있습니다.
 
 1. 최신 릴리스를 열고 `.apk` 파일을 다운로드합니다.
 2. Android에서 설치 허용 여부를 묻는 메시지가 표시되면 브라우저 또는 파일 관리자에서 알 수 없는 출처의 앱 설치를 허용하세요.
@@ -45,7 +45,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 - JDK 17 및 Android SDK.
 - 상호 운용성을 위해 Wi-Fi 및 Bluetooth를 활성화해야 합니다.
 
-디버그 패키지 ID는 `app.AirFree.android.debug`이며, 릴리스 빌드에서는 `app.AirFree.android`를 사용합니다.
+디버그 패키지 ID는 `app.airfree.android.debug`이며, 릴리스 빌드에서는 `app.airfree.android`를 사용합니다.
 
 ## 사용 방법
 
