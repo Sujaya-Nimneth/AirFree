@@ -34,7 +34,7 @@ AirFree supports Android 7.0 or newer (`minSdk = 24`).
 ### Download a pre-built APK
 
 End users can install the signed release APK from the
-[GitHub Releases page](https://github.com/airfree/airfree-android/releases).
+[GitHub Releases page](https://github.com/Sujaya-Nimneth/AirFree/releases).
 
 1. Open the latest release and download the `.apk` asset.
 2. If Android prompts for it, allow your browser or file manager to install

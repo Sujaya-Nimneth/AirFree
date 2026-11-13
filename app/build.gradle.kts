@@ -83,15 +83,13 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // AirFree update plumbing. Override at build time with
-        // -PAIRFREE_UPDATE_REPO=owner/repo (or AIRFREE_UPDATE_REPO env var).
-        // REPLACE ME with the real AirFree repository before publishing a
-        // release; the default is a clearly-marked placeholder so no build
-        // silently keeps pointing at the old upstream.
+        // -PAIRFREE_UPDATE_REPO=owner/repo (or AIRFREE_UPDATE_REPO env var);
+        // the default is the repository that publishes the releases.
         val updateRepo =
             providers
                 .gradleProperty("AIRFREE_UPDATE_REPO")
                 .orElse(providers.environmentVariable("AIRFREE_UPDATE_REPO"))
-                .orElse("airfree/airfree-android")
+                .orElse("Sujaya-Nimneth/AirFree")
                 .get()
         buildConfigField("String", "UPDATE_REPO", "\"$updateRepo\"")
     }

@@ -23,7 +23,7 @@ AirFree는 Android 7.0 이상(`minSdk = 24`)을 지원합니다.
 
 ### 빌드된 APK 다운로드하기
 
-사용자는 다음 [GitHub 릴리스 페이지](https://github.com/airfree/airfree-android/releases)에서 서명된 릴리스 APK를 설치할 수 있습니다.
+사용자는 다음 [GitHub 릴리스 페이지](https://github.com/Sujaya-Nimneth/AirFree/releases)에서 서명된 릴리스 APK를 설치할 수 있습니다.
 
 1. 최신 릴리스를 열고 `.apk` 파일을 다운로드합니다.
 2. Android에서 설치 허용 여부를 묻는 메시지가 표시되면 브라우저 또는 파일 관리자에서 알 수 없는 출처의 앱 설치를 허용하세요.
