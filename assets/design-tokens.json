@@ -1,0 +1,79 @@
+{
+  "$meta": {
+    "brand": "AirFree",
+    "source": "docs/brand-guidelines.md",
+    "astryxTheme": "design/airfree.theme.ts",
+    "architecture": "primitive -> semantic -> component",
+    "modes": ["light", "dark"]
+  },
+  "primitive": {
+    "color": {
+      "sky-500": "#2563EB",
+      "sky-700": "#1D4ED8",
+      "sky-300-dark": "#7DA9FF",
+      "sky-500-dark": "#4C7DF0",
+      "aurora-600": "#7C3AED",
+      "aurora-400-dark": "#A78BFA",
+      "amber-600": "#D97706",
+      "amber-400-dark": "#FBBF24",
+      "page-light": "#F5F8FF",
+      "page-dark": "#0B1020",
+      "glass-light": "#FFFFFFB8",
+      "glass-dark": "#1B2440AD",
+      "hairline-light": "#FFFFFF8C",
+      "hairline-dark": "#FFFFFF24",
+      "ink-light": "#0F172A",
+      "ink-dark": "#F1F5FD",
+      "ink-secondary-light": "#475569",
+      "ink-secondary-dark": "#AAB6CC",
+      "green-light": "#0D8626",
+      "green-dark": "#4ADE80",
+      "red-light": "#DC2626",
+      "red-dark": "#F87171",
+      "white": "#FFFFFF"
+    },
+    "space": { "1": 4, "2": 8, "3": 12, "4": 16, "6": 24, "8": 32, "12": 48 },
+    "radius": { "sm": 12, "card": 20, "glass": 24, "pill": 999 },
+    "duration": { "fast": 150, "medium": 300, "slow": 450 },
+    "font": {
+      "family": "Inter",
+      "weight": { "regular": 400, "medium": 500, "semibold": 600, "bold": 700 },
+      "size": { "display": 34, "heading": 22, "title": 16, "body": 14, "label": 12, "caption": 12 }
+    },
+    "stroke": 1.75,
+    "icon-size": 24,
+    "touch-target": 48,
+    "touch-gap": 8
+  },
+  "semantic": {
+    "color": {
+      "primary": { "light": "{primitive.color.sky-500}", "dark": "{primitive.color.sky-300-dark}" },
+      "primary-strong": { "light": "{primitive.color.sky-700}", "dark": "{primitive.color.sky-500-dark}" },
+      "aurora": { "light": "{primitive.color.aurora-600}", "dark": "{primitive.color.aurora-400-dark}" },
+      "cta": { "light": "{primitive.color.amber-600}", "dark": "{primitive.color.amber-400-dark}" },
+      "on-primary": { "light": "{primitive.color.white}", "dark": "{primitive.color.page-dark}" },
+      "on-cta": { "light": "{primitive.color.ink-light}", "dark": "{primitive.color.page-dark}" },
+      "background": { "light": "{primitive.color.page-light}", "dark": "{primitive.color.page-dark}" },
+      "surface": { "light": "{primitive.color.glass-light}", "dark": "{primitive.color.glass-dark}" },
+      "surface-border": { "light": "{primitive.color.hairline-light}", "dark": "{primitive.color.hairline-dark}" },
+      "text-primary": { "light": "{primitive.color.ink-light}", "dark": "{primitive.color.ink-dark}" },
+      "text-secondary": { "light": "{primitive.color.ink-secondary-light}", "dark": "{primitive.color.ink-secondary-dark}" },
+      "success": { "light": "{primitive.color.green-light}", "dark": "{primitive.color.green-dark}" },
+      "error": { "light": "{primitive.color.red-light}", "dark": "{primitive.color.red-dark}" }
+    },
+    "motion": {
+      "tap": "{primitive.duration.fast}",
+      "entrance": "{primitive.duration.medium}",
+      "stagger": "{primitive.duration.slow}"
+    }
+  },
+  "component": {
+    "button-primary": { "fill": "{semantic.color.cta}", "label": "{semantic.color.on-cta}", "radius": "{primitive.radius.pill}", "pressed": "{semantic.color.primary-strong}" },
+    "button-secondary": { "fill": "{semantic.color.surface}", "label": "{semantic.color.text-primary}", "border": "{semantic.color.surface-border}" },
+    "glass-card": { "fill": "{semantic.color.surface}", "border": "{semantic.color.surface-border}", "radius": "{primitive.radius.card}", "blur": 16 },
+    "glass-sheet": { "fill": "{semantic.color.surface}", "border": "{semantic.color.surface-border}", "radius": "{primitive.radius.glass}", "blur": 20 },
+    "nav-pill": { "fill": "{semantic.color.surface}", "active": "{semantic.color.primary}", "radius": "{primitive.radius.pill}" },
+    "focus-ring": { "color": "{semantic.color.primary}", "width": 2 },
+    "touch-target": { "min": "{primitive.touch-target}", "gap": "{primitive.touch-gap}" }
+  }
+}

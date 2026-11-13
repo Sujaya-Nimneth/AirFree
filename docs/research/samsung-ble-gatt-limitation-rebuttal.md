@@ -3,7 +3,7 @@
 **Document type:** Contradiction report / interop evidence record
 **Date:** 2026-05-05
 **Status:** BLE GATT limitation claim contradicted by live-device success
-**Scope:** vivo X300 Ultra (`V2547A`, LibreDrop debug) sending to Galaxy S26 Ultra (`SM-S948N`, stock Samsung Quick Share / ShareLive)
+**Scope:** vivo X300 Ultra (`V2547A`, AirFree debug) sending to Galaxy S26 Ultra (`SM-S948N`, stock Samsung Quick Share / ShareLive)
 **Related document:** `docs/research/samsung-ble-gatt-cert-gate.md`
 
 ## Executive summary
@@ -13,7 +13,7 @@ sender could not complete BLE GATT bootstrap into a Samsung Quick Share
 receiver because Samsung enforced a Google-account-bound `SenderCertificate`
 gate before registering the per-peer Weave handler.
 
-Live-device testing contradicts that claim. LibreDrop on vivo completed a
+Live-device testing contradicts that claim. AirFree on vivo completed a
 Samsung receive flow over BLE GATT, upgraded to Wi-Fi Direct, streamed a
 non-zero 1 MiB file, and both devices reached successful terminal UI states.
 The same run still emitted Samsung `gchm No handler registered` logs, proving
@@ -23,7 +23,7 @@ that those logs are not sufficient evidence of a fatal receiver-side gate.
 
 The earlier limitation report asserted:
 
-- Samsung BLE GATT receive from LibreDrop is impossible for non-GMS senders.
+- Samsung BLE GATT receive from AirFree is impossible for non-GMS senders.
 - `BluetoothGattException: No handler registered for characteristic ...`
   proves Samsung did not register the real Weave handler for the peer.
 - Samsung BLE-GATT-only peers should be surfaced as a likely-failing route,
@@ -38,17 +38,17 @@ Galaxy S26 Ultra and vivo X300 Ultra pair.
 
 - Galaxy S26 Ultra was on the stock Quick Share receive surface and showed
   `Ready to receive...`.
-- vivo X300 Ultra ran `dev.bluehouse.bada.debug`.
+- vivo X300 Ultra ran `app.airfree.android.debug`.
 - The payload was an app-private external file:
-  `/sdcard/Android/data/dev.bluehouse.bada.debug/files/samsung-cert-gate.bin`.
-- LibreDrop resolved the payload as `size=1048576`.
-- LibreDrop selected `route=ble-gatt`; the planner logged
+  `/sdcard/Android/data/app.airfree.android.debug/files/samsung-cert-gate.bin`.
+- AirFree resolved the payload as `size=1048576`.
+- AirFree selected `route=ble-gatt`; the planner logged
   `wifi-lan=missing` and `ble-l2cap=peer-psm-missing`, so this was not a
   Wi-Fi LAN send.
 
 ### User-visible success
 
-- vivo picker row: `Kyujin's S26 Ultra`, subtitle `BLE GATT 08:42:18:5E:6C:0A`.
+- vivo picker row: `the tester's S26 Ultra`, subtitle `BLE GATT 08:42:18:5E:6C:0A`.
 - No Samsung-specific warning dialog appeared.
 - Galaxy consent prompt: `V2547A wants to share 1 file with you`, PIN `4129`.
 - vivo terminal state: `Sent successfully`.
@@ -109,7 +109,7 @@ cryptographically impossible for all non-GMS senders.
 ### 3. The test harness produced invalid payload metadata
 
 Earlier ADB-launched public `file://` and MediaStore `content://` sends
-materialized in LibreDrop as zero-byte payloads. Samsung then rejected the
+materialized in AirFree as zero-byte payloads. Samsung then rejected the
 introduction because file metadata with size `0` is invalid for a file
 attachment. That failure mode was a harness artifact, not a BLE GATT
 certificate gate.

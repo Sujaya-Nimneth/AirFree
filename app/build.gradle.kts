@@ -61,14 +61,14 @@ fun releaseSigningInputs(releaseTaskRequested: Boolean): ReleaseSigningInputs? {
 val releaseSigningInputs = releaseSigningInputs(isReleaseTaskRequested())
 
 android {
-    namespace = "dev.bluehouse.bada"
+    namespace = "app.airfree.android"
     compileSdk =
         libs.versions.compileSdk
             .get()
             .toInt()
 
     defaultConfig {
-        applicationId = "dev.bluehouse.bada"
+        applicationId = "app.airfree.android"
         minSdk =
             libs.versions.minSdk
                 .get()
@@ -77,10 +77,23 @@ android {
             libs.versions.targetSdk
                 .get()
                 .toInt()
-        versionCode = 2026110201
-        versionName = "20261102.01"
+        versionCode = 2026111301
+        versionName = "20261113.01"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // AirFree update plumbing. Override at build time with
+        // -PAIRFREE_UPDATE_REPO=owner/repo (or AIRFREE_UPDATE_REPO env var).
+        // REPLACE ME with the real AirFree repository before publishing a
+        // release; the default is a clearly-marked placeholder so no build
+        // silently keeps pointing at the old upstream.
+        val updateRepo =
+            providers
+                .gradleProperty("AIRFREE_UPDATE_REPO")
+                .orElse(providers.environmentVariable("AIRFREE_UPDATE_REPO"))
+                .orElse("airfree/airfree-android")
+                .get()
+        buildConfigField("String", "UPDATE_REPO", "\"$updateRepo\"")
     }
 
     signingConfigs {
@@ -170,7 +183,7 @@ dependencies {
     implementation(libs.zxing.core)
 
     // WorkManager — runs the automatic update check (UpdateCheckWorker): a
-    // 6-hourly PeriodicWork, scheduled in BadaApplication.onCreate, that polls
+    // 6-hourly PeriodicWork, scheduled in AirFreeApplication.onCreate, that polls
     // GitHub Releases and posts an "update available" notification. WorkManager
     // persists the schedule across reboots with no user action.
     implementation(libs.androidx.work.runtime.ktx)

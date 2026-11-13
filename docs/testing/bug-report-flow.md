@@ -1,6 +1,6 @@
 # Bug report flow runbook
 
-Issue [#162](https://github.com/kyujin-cho/LibreDrop/issues/162) adds an
+Issue [#162](the local issue tracker) adds an
 opt-in "shake to report a bug" flow that packages recent diagnostics,
 device state, and a screenshot into a user-saved zip archive.
 
@@ -16,7 +16,7 @@ one Samsung device.
 adb -s <device> install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-- Use a device pair that can exercise LibreDrop normally:
+- Use a device pair that can exercise AirFree normally:
   - one Pixel or other AOSP-like GMS device
   - one Samsung Galaxy device with current Quick Share
 - Clear any previous saved bug-report archives from Downloads or the
@@ -26,10 +26,10 @@ adb -s <device> install -r app/build/outputs/apk/debug/app-debug.apk
 
 Run this on both the Pixel and Samsung device:
 
-1. Open LibreDrop and confirm the new launcher toggle "Shake to report a bug"
+1. Open AirFree and confirm the new launcher toggle "Shake to report a bug"
    is visible and off by default.
 2. Turn the toggle on.
-3. With LibreDrop still foregrounded, shake the device firmly.
+3. With AirFree still foregrounded, shake the device firmly.
 4. Confirm the modal appears with:
    - "Trying to report a bug?"
    - Yes / No actions
@@ -41,14 +41,14 @@ Run this on both the Pixel and Samsung device:
    location such as Downloads with the suggested filename.
 9. Confirm the post-save dialog appears and offers "Open GitHub issue".
 10. Tap Dismiss once, then repeat the flow and verify that "Open GitHub issue"
-    launches the browser to LibreDrop's new-issue page.
+    launches the browser to AirFree's new-issue page.
 
 ## Archive checks
 
 After saving, inspect the archive:
 
 ```bash
-adb -s <device> shell ls /sdcard/Download | grep libredrop-bugreport
+adb -s <device> shell ls /sdcard/Download | grep airfree-bugreport
 adb -s <device> pull /sdcard/Download/<archive-name>.zip /tmp/
 unzip -l /tmp/<archive-name>.zip
 ```
@@ -79,9 +79,9 @@ Confirm:
 - `metadata.json` records whether Wi-Fi BSSID inclusion was enabled.
 - `device.txt` includes app/device/runtime state and does not contain
   raw Bluetooth MAC addresses.
-- `logs/ringbuffer.txt` contains recent lines from the `LibreDropDiscovery`,
-  `LibreDropBleScan`, `LibreDropBleAdv`, `LibreDropMdnsGate`, or
-  `LibreDropOutbound` tags after exercising the app.
+- `logs/ringbuffer.txt` contains recent lines from the `AirFreeDiscovery`,
+  `AirFreeBleScan`, `AirFreeBleAdv`, `AirFreeMdnsGate`, or
+  `AirFreeOutbound` tags after exercising the app.
 
 ## BSSID privacy check
 
@@ -101,7 +101,7 @@ Verify both sensitive-screen cases on at least one device:
 
 ### QR screen
 
-1. Open LibreDrop's QR screen.
+1. Open AirFree's QR screen.
 2. Shake the device and save a bug report.
 3. Extract `screenshot.png`.
 
@@ -134,7 +134,7 @@ Expected result:
 - If the flow fails on one device family only, capture:
 
 ```bash
-adb logcat -s LibreDropDiscovery LibreDropSend LibreDropOutbound LibreDropBleScan LibreDropBleAdv LibreDropMdnsGate
+adb logcat -s AirFreeDiscovery AirFreeSend AirFreeOutbound AirFreeBleScan AirFreeBleAdv AirFreeMdnsGate
 ```
 
 - Record whether the failure is collection, SAF save, screenshot capture,

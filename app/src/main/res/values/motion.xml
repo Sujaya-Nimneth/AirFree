@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AirFree motion tokens (port of assets/design-tokens.json).
+  fast = tap feedback, medium = entrance/exit, slow = stagger/ambient.
+  Non-essential animations must be gated on the system animator scale
+  (ANIMATOR_DURATION_SCALE == 0 means reduced motion) at the call site.
+-->
+<resources>
+    <integer name="af_duration_fast">150</integer>
+    <integer name="af_duration_medium">300</integer>
+    <integer name="af_duration_slow">450</integer>
+    <!-- 0 means "no ambient pulse / no stagger" for reduced-motion users. -->
+    <integer name="af_ambient_pulse_duration_ms">4500</integer>
+    <integer name="af_stagger_step_ms">60</integer>
+</resources>

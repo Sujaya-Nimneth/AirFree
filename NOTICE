@@ -1,0 +1,35 @@
+AirFree
+Copyright 2026 AirFree contributors.
+
+This product includes software developed by the AirFree contributors and is
+licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party protocol references and prior art
+---------------------------------------------
+
+The Quick Share / Nearby Share wire-protocol implementation is informed by
+publicly available documentation and open-source reference material, including:
+
+  * NearDrop by @grishka — protocol documentation
+    https://github.com/grishka/NearDrop/blob/master/PROTOCOL.md
+    (reference documentation; no NearDrop source is included in this project)
+
+  * Google UKEY2 — handshake specification
+    https://github.com/google/ukey2
+
+  * Google "Nearby Connections" / Quick Share wire behaviour, as observed
+    through interoperability testing with stock Android implementations.
+
+Google Sans Flex / Inter font assets are provided at runtime by the Google Play
+Services Downloadable Fonts provider on devices that have it; no font binaries
+are bundled in this repository. The font-provider certificates in
+app/src/main/res/values/font_certs.xml are the standard Android Studio
+downloadable-font template values.
+
+Trademarks
+----------
+
+"Quick Share", "Nearby Share", "Android", and "Google Play Services" are
+trademarks of their respective owners. AirFree is not affiliated with, endorsed
+by, or sponsored by those owners. This project is an independent, interoperable
+implementation.

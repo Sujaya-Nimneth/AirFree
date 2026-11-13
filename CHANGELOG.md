@@ -1,10 +1,18 @@
 # Changelog
 
+## 20261113.01
+
+- **AirFree** - First release under the AirFree identity: new sky-and-aurora
+  visual design, glass surfaces, Inter typeface, and a new launcher icon.
+- Reworked the in-app update and bug-report endpoints to be configurable at
+  build time so no build points at a hardcoded upstream repository.
+- Removed the legacy-install migration banner and detector.
+
 ## 20261102.01
 
 - **Improved messages when a send stops** - Now you can see why a send ended early: you cancelled it, the other person closed or stopped it, or the other phone is set to receive files only from contacts or from its own devices. In that last case, the message shows which Quick Share setting to change. (#319, #320)
-- **Introducing our new logo** - Now you can see the bada logo at the top of the home screen. It is black in light mode and white in dark mode. (#323)
-- **Fixed failed sends to a Galaxy phone on another network** - Now you can send files from Bada to a Galaxy phone that is not on your Wi-Fi. Before this update, these transfers reached 100% and then failed. The send screen also shows "Sent successfully" at the end of every transfer, including the few that start over Bluetooth Low Energy. (#314, #316, #322)
+- **Introducing our new logo** - Now you can see the AirFree logo at the top of the home screen. It is black in light mode and white in dark mode. (#323)
+- **Fixed failed sends to a Galaxy phone on another network** - Now you can send files from AirFree to a Galaxy phone that is not on your Wi-Fi. Before this update, these transfers reached 100% and then failed. The send screen also shows "Sent successfully" at the end of every transfer, including the few that start over Bluetooth Low Energy. (#314, #316, #322)
 - **Fixed duplicate entries for your phone** - Now you can find your phone listed once on Windows and Galaxy share screens. Before, a new copy of your phone appeared after each transfer, and on Windows the list kept getting longer while it was open. (#197, #306, #315, #321)
 - **Fixed the 1980 date on files sent to Windows** - Now you can send files to a Windows PC and keep their original modified dates. Before, Windows showed January 1, 1980 for every received file. (#310, #318)
 - **Fixed cut-off text on two-line buttons** - Now you can read the whole label on buttons whose text wraps onto a second line. Before, the second line was cut off. (#307, #317)
@@ -20,13 +28,13 @@
 
 - Add a master on/off switch at the top of Settings: off stops the receiver service entirely (no mDNS, no BLE advertisement, no listener) and every path that could bring it back honours the choice, while the receive tab greys out the visibility pill and says why. The Name Card entry is hidden until that flow is usable end to end. (#239, #293)
 - Keep servicing the LAN channel while a receiver-side Wi-Fi Direct upgrade offer is pending and make the upgrade accept cancellable, so a stock sender that ignores the offer no longer stalls the transfer until the receiver gives up. Bug reports now include the inbound diagnostics log. (#285, #288, #289)
-- Advertise real Wi-Fi band support and the current STA frequency to the peer on ConnectionRequest, UPGRADE_PATH_REQUEST and SAFE_TO_CLOSE_PRIOR_CHANNEL, so a stock group owner can form a 5 GHz Wi-Fi Direct group instead of pinning Bada senders to 2.4 GHz. (#287, #292)
+- Advertise real Wi-Fi band support and the current STA frequency to the peer on ConnectionRequest, UPGRADE_PATH_REQUEST and SAFE_TO_CLOSE_PRIOR_CHANNEL, so a stock group owner can form a 5 GHz Wi-Fi Direct group instead of pinning AirFree senders to 2.4 GHz. (#287, #292)
 - Show the Bluetooth-off warning in the send picker whenever Bluetooth is off, not only while the peer list is empty, with an inline button to turn it on. (#290, #291)
 - Darken the night palette one step and pin the page background below the cards so the layering reads correctly in dark mode, stopping short of pure black to avoid OLED smearing. (#280, #294)
 
 ## 20260830.01
 
-- Rewrite the Name Card exchange: set up a personal contact card in Settings and exchange it Bada-to-Bada with an NFC tap. (#251)
+- Rewrite the Name Card exchange: set up a personal contact card in Settings and exchange it AirFree-to-AirFree with an NFC tap. (#251)
 - Present the incoming-transfer consent as a bottom sheet that opens by itself the moment a transfer arrives, floating over whatever is on screen in its own task; the notification becomes a plain banner (no clipped buttons on OEM shades) whose tap opens the same sheet, and the completed-state photo blur now fills the sheet shape. (#279)
 - Add an instant pressed wash to every frosted button so taps read immediately, including the send sheet's Cancel/Done plate where the ripple was invisible over the backdrop blur. (#278)
 - Fix the send picker's peer-device names to inherit the DayNight theme text color instead of remaining dark in night mode. (#275)

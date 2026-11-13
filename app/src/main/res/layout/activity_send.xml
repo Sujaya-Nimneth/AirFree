@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Layout for SendActivity (#24) — restructured for Phase 1 into an
-  bottom sheet (see dev.bluehouse.bada.ui.sheet.DraggableSheetLayout).
+  bottom sheet (see app.airfree.android.ui.sheet.DraggableSheetLayout).
 
   Shape (back to front):
     1. Root FrameLayout — transparent, match_parent, bottom gravity.
-       Hosted by the translucent Theme.Bada.SendSheet so the
+       Hosted by the translucent Theme.AirFree.SendSheet so the
        app/launcher behind shows through a soft 0.2 dim. Tapping the
        empty scrim area (send_sheet_scrim) dismisses the activity.
     2. send_sheet — a bottom-anchored DraggableSheetLayout: a rounded
@@ -52,7 +52,7 @@
       and the QR scroll keeps working; the sheet itself wraps that plus
       its rounded-surface padding.
     -->
-    <dev.bluehouse.bada.ui.sheet.DraggableSheetLayout
+    <app.airfree.android.ui.sheet.DraggableSheetLayout
         android:id="@+id/send_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
 
                                 <Button
                                     android:id="@+id/send_bluetooth_off_banner_action"
-                                    style="@style/Widget.Bada.Button"
+                                    style="@style/Widget.AirFree.Button"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="12dp"
@@ -289,7 +289,7 @@
 
                             </LinearLayout>
 
-                            <dev.bluehouse.bada.ui.sheet.FlowLayout
+                            <app.airfree.android.ui.sheet.FlowLayout
                                 android:id="@+id/send_peer_list"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
@@ -408,7 +408,7 @@
                           progress disc showing transfer speed / ETA / medium when the
                           "expert view" setting is on. Hidden by default; SendActivity /
                           SendActivityInApp toggle visibility + fill the text via
-                          renderExpertDetails(). (upstream Bada transfer-expert-view.)
+                          renderExpertDetails(). (upstream AirFree transfer-expert-view.)
                         -->
                         <TextView
                             android:id="@+id/send_expert_details"
@@ -512,7 +512,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp">
 
-                    <dev.bluehouse.bada.ui.BackdropBlurView
+                    <app.airfree.android.ui.BackdropBlurView
                         android:id="@+id/send_cancel_blur"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -612,7 +612,7 @@
 
                         <Button
                             android:id="@+id/send_qr_close"
-                            style="@style/Widget.Bada.Button"
+                            style="@style/Widget.AirFree.Button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -626,7 +626,7 @@
 
                         <Button
                             android:id="@+id/send_qr_copy_link"
-                            style="@style/Widget.Bada.Button"
+                            style="@style/Widget.AirFree.Button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -657,6 +657,6 @@
 
         </LinearLayout>
 
-    </dev.bluehouse.bada.ui.sheet.DraggableSheetLayout>
+    </app.airfree.android.ui.sheet.DraggableSheetLayout>
 
 </FrameLayout>

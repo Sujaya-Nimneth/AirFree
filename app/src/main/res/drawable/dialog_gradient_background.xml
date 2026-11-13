@@ -24,7 +24,8 @@
     android:shape="rectangle">
     <corners android:radius="20dp" />
     <gradient
-        android:angle="270"
+        android:angle="315"
+        android:centerColor="@color/af_gradient_mid"
         android:endColor="@color/card_dialog_gradient_bottom"
         android:startColor="@color/card_dialog_gradient_top"
         android:type="linear" />

@@ -2,7 +2,7 @@
 <!--
   Landscape variant of SendActivity (#24), restructured for Phase 1 into
   the same bottom sheet as portrait
-  (dev.bluehouse.bada.ui.sheet.DraggableSheetLayout). The card is anchored to
+  (app.airfree.android.ui.sheet.DraggableSheetLayout). The card is anchored to
   the bottom of the translucent activity window and spans the width with
   side margins; its interior keeps the landscape left/right split so the
   picker fits a short viewport without scrolling the whole screen:
@@ -35,7 +35,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/transparent" />
 
-    <dev.bluehouse.bada.ui.sheet.DraggableSheetLayout
+    <app.airfree.android.ui.sheet.DraggableSheetLayout
         android:id="@+id/send_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -296,7 +296,7 @@
 
                                 <Button
                                     android:id="@+id/send_bluetooth_off_banner_action"
-                                    style="@style/Widget.Bada.Button"
+                                    style="@style/Widget.AirFree.Button"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="12dp"
@@ -309,7 +309,7 @@
 
                             </LinearLayout>
 
-                            <dev.bluehouse.bada.ui.sheet.FlowLayout
+                            <app.airfree.android.ui.sheet.FlowLayout
                                 android:id="@+id/send_peer_list"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
@@ -490,7 +490,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp">
 
-                                <dev.bluehouse.bada.ui.BackdropBlurView
+                                <app.airfree.android.ui.BackdropBlurView
                                     android:id="@+id/send_cancel_blur"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent" />
@@ -599,7 +599,7 @@
 
                             <Button
                                 android:id="@+id/send_qr_close"
-                                style="@style/Widget.Bada.Button"
+                                style="@style/Widget.AirFree.Button"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -613,7 +613,7 @@
 
                             <Button
                                 android:id="@+id/send_qr_copy_link"
-                                style="@style/Widget.Bada.Button"
+                                style="@style/Widget.AirFree.Button"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -631,6 +631,6 @@
 
         </FrameLayout>
 
-    </dev.bluehouse.bada.ui.sheet.DraggableSheetLayout>
+    </app.airfree.android.ui.sheet.DraggableSheetLayout>
 
 </FrameLayout>

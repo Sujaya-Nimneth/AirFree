@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  简体中文 (zh-rCN) 字符串覆盖。Android 资源系统会为主区域设置为简体中文
-  (zh-CN、zh-rCN) 的设备选用此文件；其他区域设置将回退到 values/strings.xml
-  中的英文版本。
-
-  翻译说明：
-    * app_name、贡献者姓名、品牌标签（"Quick Share"、"bada"）等专有名词不翻译。
-    * credit_teqhnikacross_desc —— 贡献者要求该句在所有语言中保持英文原文。
-    * credit_parami_desc —— 跨区域保持英文原文。
-    * qs_tile_label、transfer_progress_percent 不覆盖（参见 ko 注释）。
-    * 格式占位符（%1$s、%1$d、%%、\n 等）和转义字符原样保留。
--->
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- 主界面底部导航标签 -->
@@ -22,16 +10,14 @@
     <string name="credit_activity_label">致谢</string>
 
     <!-- 致谢界面，开发者板块 -->
-    <string name="credit_kevin_desc">里程快不够用了</string>
-    <!-- YEONFEEL 的标语（简体中文版）。英文版在 values/，韩文版在 values-ko/，日文版在 values-ja/ -->
-    <string name="credit_yeonfeel_desc">走在无人知晓的世界里</string>
+    <string name="credit_kevin_desc">Direct sharing, nothing in the middle.</string>
+    <string name="credit_yeonfeel_desc">Clear, calm, and considered.</string>
     <!-- 致谢界面，QA 板块 -->
-    <string name="credit_chiyak_qa_desc">好想买演唱会门票</string>
-    <string name="credit_parami_desc">Justice will be served.</string>
+    <string name="credit_chiyak_qa_desc">Tested across devices without Play Services.</string>
+    <string name="credit_parami_desc">Open by design.</string>
 
     <string name="credit_avatar_description">贡献者头像</string>
-    <!-- 底部特别感谢紧凑行。"Chiyak" 为专有名词，仅括号内的说明文字翻译 -->
-    <string name="credit_thanks_compact">Chiyak（提供开发者令牌）</string>
+    <string name="credit_thanks_compact">The AirFree community</string>
 
     <!-- 发送/接收标签页的文件选择入口 -->
     <string name="main_send_files_button">发送文件</string>
@@ -52,7 +38,7 @@
 
     <!-- 摇晃举报 Bug 开关 -->
     <string name="main_bug_report_title">摇晃手机以举报 Bug</string>
-    <string name="main_bug_report_subtitle">启用后，在 Bada 打开时摇晃手机，即可将最近的诊断信息、设备状态和截图打包成 zip 文件并自行保存。不会自动上传任何内容。</string>
+    <string name="main_bug_report_subtitle">启用后，在 AirFree 打开时摇晃手机，即可将最近的诊断信息、设备状态和截图打包成 zip 文件并自行保存。不会自动上传任何内容。</string>
     <string name="main_keep_screen_on_title">传输时保持屏幕开启</string>
     <string name="main_keep_screen_on_subtitle">发送或接收文件时保持屏幕唤醒，便于查看长时间传输并提升连接可靠性。</string>
     <string name="main_transfer_expert_title">传输详细信息</string>
@@ -101,10 +87,6 @@
     <string name="send_folder_walk_failed">无法读取文件夹内容，请选择其他文件夹后重试。</string>
 
     <!-- 旧版应用迁移横幅（#145） -->
-    <string name="main_legacy_wvmg_banner_title">请卸载旧版应用</string>
-    <string name="main_legacy_wvmg_banner_body">此设备上仍安装着本应用的旧版本。两个版本在蓝牙上存在冲突，导致 Galaxy 等原生 Quick Share 发送方无法连接到本设备。请点击"卸载"以移除旧版本。</string>
-    <string name="main_legacy_wvmg_banner_uninstall">卸载旧版本</string>
-    <string name="main_legacy_wvmg_banner_unavailable">无法打开 %1$s 的卸载对话框，请在系统设置中手动卸载。</string>
 
     <!-- 电池优化横幅（#47） -->
     <string name="main_battery_banner_title">允许后台活动</string>
@@ -123,11 +105,11 @@
 
     <!-- 设置标签页"全屏传输提醒"行 + 首次启动对话框（Android 14+） -->
     <string name="settings_fsi_title">全屏传输提醒</string>
-    <string name="settings_fsi_subtitle">允许全屏通知，以便在 Bada 处于后台时，传入的传输请求可在其他应用上方或锁屏界面直接显示 PIN。不允许时仍可通过点击通知查看 PIN。</string>
+    <string name="settings_fsi_subtitle">允许全屏通知，以便在 AirFree 处于后台时，传入的传输请求可在其他应用上方或锁屏界面直接显示 PIN。不允许时仍可通过点击通知查看 PIN。</string>
     <string name="settings_fsi_status_granted">当前：已允许全屏提醒</string>
     <string name="settings_fsi_status_not_granted">当前：未允许 —— PIN 提示将以通知形式出现</string>
     <string name="settings_fsi_open">打开通知设置</string>
-    <string name="fsi_dialog_body">当 Bada 处于后台时收到传输请求，Android 需要全屏通知权限才能在屏幕上弹出 PIN 提示。不允许时，提示将以普通通知的形式到达，点击即可打开。打开设置以允许，或点击"跳过"留待以后在设置标签页中处理。</string>
+    <string name="fsi_dialog_body">当 AirFree 处于后台时收到传输请求，Android 需要全屏通知权限才能在屏幕上弹出 PIN 提示。不允许时，提示将以普通通知的形式到达，点击即可打开。打开设置以允许，或点击"跳过"留待以后在设置标签页中处理。</string>
     <string name="fsi_dialog_skip_toast">您可以在设置中更改此选项。</string>
 
     <!-- 权限引导界面（#26 + #31） -->
@@ -142,7 +124,7 @@
 
     <!-- 同一 Wi-Fi 网络引导卡片（#85） -->
     <string name="onboarding_network_card_title">附近发现要求</string>
-    <string name="onboarding_network_card_body">共享 Wi-Fi 仍是 Quick Share 的基础路径，尤其是接收时。向附近原生 Quick Share 设备发送时，若设备不在同一局域网，Bada 也可使用蓝牙辅助引导，请保持蓝牙开启以使用该路径。</string>
+    <string name="onboarding_network_card_body">共享 Wi-Fi 仍是 Quick Share 的基础路径，尤其是接收时。向附近原生 Quick Share 设备发送时，若设备不在同一局域网，AirFree 也可使用蓝牙辅助引导，请保持蓝牙开启以使用该路径。</string>
     <string name="onboarding_network_card_dismiss">好的</string>
 
     <!-- NEARBY_WIFI_DEVICES（API 33+） -->
@@ -167,7 +149,7 @@
 
     <!-- ACCESS_FINE_LOCATION（旧版附近设备发现） -->
     <string name="permission_legacy_nearby_location_title">附近设备位置权限</string>
-    <string name="permission_legacy_nearby_location_rationale">Android 11 及更低版本通过位置权限传递蓝牙低功耗（BLE）扫描结果。Bada 仅用此权限发现附近的 Quick Share 设备，不使用您的物理位置。</string>
+    <string name="permission_legacy_nearby_location_rationale">Android 11 及更低版本通过位置权限传递蓝牙低功耗（BLE）扫描结果。AirFree 仅用此权限发现附近的 Quick Share 设备，不使用您的物理位置。</string>
 
     <!-- 权限状态标签 -->
     <string name="permission_status_granted">已授权</string>
@@ -190,11 +172,11 @@
     <string name="send_help_link">找不到设备？</string>
     <string name="send_help_sheet_title">找不到设备？</string>
     <string name="send_help_sheet_visibility_title">检查接收方状态</string>
-    <string name="send_help_sheet_visibility_body">在接收设备上，确认开关显示为"准备好接收"。在该模式下，附近任何人都可以向其共享文件。若已处于该模式但仍未出现，请尝试在两台设备上完全关闭 Bada 后重新打开。</string>
+    <string name="send_help_sheet_visibility_body">在接收设备上，确认开关显示为"准备好接收"。在该模式下，附近任何人都可以向其共享文件。若已处于该模式但仍未出现，请尝试在两台设备上完全关闭 AirFree 后重新打开。</string>
     <string name="send_help_sheet_qr_title">通过二维码共享</string>
     <string name="send_help_sheet_qr_body">若接收方仍未出现，请点击此卡右上角的二维码按钮。让接收方扫描二维码或打开链接即可开始传输。</string>
     <string name="send_help_sheet_compat_title">检查设备兼容性</string>
-    <string name="send_help_sheet_compat_body">bada 目前是一个实验性项目。部分设备可能可被发现但无法接收文件，另一些设备可能根本无法被发现。我们计划在后续更新中扩大设备支持范围。</string>
+    <string name="send_help_sheet_compat_body">airfree 目前是一个实验性项目。部分设备可能可被发现但无法接收文件，另一些设备可能根本无法被发现。我们计划在后续更新中扩大设备支持范围。</string>
     <string name="send_help_sheet_close">知道了</string>
 
     <string name="send_show_qr">显示二维码</string>
@@ -243,7 +225,7 @@
 
     <!-- 摇晃举报 Bug 流程（#162） -->
     <string name="bug_report_confirm_title">要举报 Bug 吗？</string>
-    <string name="bug_report_confirm_body">Bada 将收集最近的应用诊断信息、设备状态和截图并打包成 zip 文件，保存在本设备上，直到您选择保存位置为止。</string>
+    <string name="bug_report_confirm_body">AirFree 将收集最近的应用诊断信息、设备状态和截图并打包成 zip 文件，保存在本设备上，直到您选择保存位置为止。</string>
     <string name="bug_report_confirm_yes">是</string>
     <string name="bug_report_confirm_no">否</string>
     <string name="bug_report_include_bssid_label">包含更具标识性的详细信息（Wi-Fi BSSID 和附近设备诊断信息）</string>
@@ -305,11 +287,11 @@
     <string name="consent_state_close">关闭</string>
     <string name="consent_state_view_image_unavailable">没有应用可以打开此图片。</string>
 
-    <!-- 快捷设置磁贴。qs_tile_label（"Bada"）为专有名词，此处不覆盖 -->
+    <!-- 快捷设置磁贴。qs_tile_label（"AirFree"）为专有名词，此处不覆盖 -->
     <string name="qs_tile_subtitle_on">可被发现</string>
     <string name="qs_tile_subtitle_off">已关闭</string>
-    <string name="qs_tile_content_desc_on">Bada 可被附近设备发现</string>
-    <string name="qs_tile_content_desc_off">Bada 不可被发现</string>
+    <string name="qs_tile_content_desc_on">AirFree 可被附近设备发现</string>
+    <string name="qs_tile_content_desc_off">AirFree 不可被发现</string>
 
     <!-- Locale parity backfill: Name Card (#251), receive-waiting sheet,
          NFC tap-to-share settings, empty-state radio hints, consent style,
@@ -324,28 +306,28 @@
     <string name="update_button_check_again">再次检查</string>
     <string name="update_button_update">更新</string>
     <string name="update_notification_channel_name">应用更新</string>
-    <string name="update_notification_channel_desc">当 GitHub 上有较新版本的 Bada 时通知您。</string>
-    <string name="update_notification_title">Bada 有可用更新</string>
+    <string name="update_notification_channel_desc">当 GitHub 上有较新版本的 AirFree 时通知您。</string>
+    <string name="update_notification_title">AirFree 有可用更新</string>
     <string name="update_notification_text">版本 %1$s 已可安装</string>
     <string name="update_notification_action_github">在 GitHub 上查看</string>
     <string name="update_notification_action_download">下载并安装</string>
     <string name="update_downloading_title">正在下载更新…</string>
     <string name="update_download_failed_title">更新下载失败</string>
     <string name="update_download_failed_text">无法下载更新。点按通知重试或打开 GitHub。</string>
-    <string name="update_install_need_unknown_sources">请允许 Bada 安装应用，然后再次点按下载。</string>
+    <string name="update_install_need_unknown_sources">请允许 AirFree 安装应用，然后再次点按下载。</string>
     <string name="update_install_started">正在下载更新…</string>
-    <string name="update_install_success">Bada 已更新</string>
+    <string name="update_install_success">AirFree 已更新</string>
     <string name="update_install_failed">无法安装更新</string>
-    <string name="update_confirm_notification_title">确认 Bada 更新</string>
+    <string name="update_confirm_notification_title">确认 AirFree 更新</string>
     <string name="update_confirm_notification_text">点按以确认并完成更新安装。</string>
     <string name="update_open_release_failed">无法打开发布页面。</string>
     <string name="settings_auto_update_title">自动检查更新</string>
-    <string name="settings_auto_update_subtitle">每 6 小时检查一次 GitHub 上是否有更新的 Bada 版本，有则显示通知。</string>
+    <string name="settings_auto_update_subtitle">每 6 小时检查一次 GitHub 上是否有更新的 AirFree 版本，有则显示通知。</string>
     <string name="credit_section_developer">开发</string>
     <string name="credit_section_polisher">打磨</string>
     <string name="credit_section_qa">QA</string>
     <string name="credit_section_thanks">特别感谢</string>
-    <string name="credit_teqhnikacross_desc">我们都渴望被爱</string>
+    <string name="credit_teqhnikacross_desc">Built for everyone nearby.</string>
     <string name="settings_nfc_diagnostics_title">显示 NFC 碰一碰诊断</string>
     <string name="settings_nfc_diagnostics_subtitle">启用后，每次 NFC 碰一碰分享都会在屏幕上显示诊断消息（读取结果、唤醒、连接的设备或失败原因）。一切正常后可关闭以获得干净的体验。详细日志始终保留用于错误报告。</string>
     <string name="settings_nfc_title">NFC 碰一碰分享</string>
@@ -369,17 +351,17 @@
     <string name="send_status_tap_waiting_wifi">正在等待 Wi‑Fi…</string>
     <string name="consent_state_waiting_title">已准备好接收</string>
     <string name="consent_state_waiting_body">正在等待附近设备分享…</string>
-    <string name="nfc_tap_hce_service_description">Bada Quick Share 碰一碰分享</string>
-    <string name="nfc_hce_service_description">Bada NFC 链接</string>
-    <string name="nfc_namecard_hce_service_description">Bada 名片</string>
-    <string name="settings_master_on">Bada 已开启</string>
-    <string name="settings_master_off">Bada 已关闭</string>
-    <string name="main_master_off_caption">Bada 已关闭。要接收文件，请在设置中开启。</string>
+    <string name="nfc_tap_hce_service_description">AirFree Quick Share 碰一碰分享</string>
+    <string name="nfc_hce_service_description">AirFree NFC 链接</string>
+    <string name="nfc_namecard_hce_service_description">AirFree 名片</string>
+    <string name="settings_master_on">AirFree 已开启</string>
+    <string name="settings_master_off">AirFree 已关闭</string>
+    <string name="main_master_off_caption">AirFree 已关闭。要接收文件，请在设置中开启。</string>
     <string name="settings_name_card_row_title">名片</string>
     <string name="settings_name_card_row_subtitle">设置手机碰一碰时分享的联系人名片</string>
     <string name="name_card_activity_label">名片</string>
     <string name="name_card_setup_title">我的名片</string>
-    <string name="name_card_setup_subtitle">两台手机碰一碰时与对方的 Bada 手机分享。留空则使用手机自身的名称和号码。</string>
+    <string name="name_card_setup_subtitle">两台手机碰一碰时与对方的 AirFree 手机分享。留空则使用手机自身的名称和号码。</string>
     <string name="name_card_enable_title">手机碰一碰时分享我的名片</string>
     <string name="name_card_field_name">姓名</string>
     <string name="name_card_field_phone">电话</string>

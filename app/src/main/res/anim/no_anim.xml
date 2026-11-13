@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  No-op window animation. Used for Theme.Bada.SendSheet's activity OPEN
+  No-op window animation. Used for Theme.AirFree.SendSheet's activity OPEN
   enter so the activity window does NOT slide/scale on open: the slide-up "from
   the bottom of the screen" is done instead by the inner DraggableSheetLayout's
   own view-level entrance (playEntrance), which is the single, controllable, and

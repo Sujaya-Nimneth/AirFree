@@ -50,7 +50,7 @@
         android:paddingBottom="@dimen/settings_content_bottom_padding">
 
         <!-- ============ Master switch (#239) ============
-             settings_master_row — 60dp pill that turns Bada's receive side on
+             settings_master_row — 60dp pill that turns AirFree's receive side on
              or off. Off stops the receiver foreground service so the device is
              no longer discoverable; on starts it again. The whole row toggles;
              the SwitchCompat is the visual state and the background swaps
@@ -236,7 +236,7 @@
           The underlying [AdvertisedDeviceNames] storage refreshes the
           active receiver session after save/reset, and the pre-merge
           debug-loop regression matrix covers custom-name discovery in
-          both GMS-to-Bada and Bada-to-GMS directions.
+          both GMS-to-AirFree and AirFree-to-GMS directions.
         -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -391,7 +391,7 @@
              Android 14+, where USE_FULL_SCREEN_INTENT became a grantable
              special access. Lets the consent PIN prompt pop full-screen
              over other apps / the lock screen when a transfer arrives
-             while Bada is in the background. -->
+             while AirFree is in the background. -->
         <LinearLayout
             android:id="@+id/settings_fsi_card"
             android:layout_width="match_parent"

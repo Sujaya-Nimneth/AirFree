@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.bluehouse.bada.service"
+    namespace = "app.airfree.android.service"
     compileSdk =
         libs.versions.compileSdk
             .get()
