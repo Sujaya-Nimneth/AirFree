@@ -3,18 +3,18 @@
 **Document type:** Reverse-engineering validation note
 **Subject:** Samsung One UI Quick Share BLE GATT acceptance behavior
 **Status:** Invalidated by live device testing on 2026-05-05
-**Validated devices:** vivo X300 Ultra (`V2547A`, LibreDrop debug) -> Galaxy S26 Ultra (`SM-S948N`, stock Quick Share / ShareLive)
-**Companion code:** `discovery-android/src/main/kotlin/dev/bluehouse/bada/discovery/bootstrap/BleGattInitialControlClient.kt`, `discovery-android/src/main/kotlin/dev/bluehouse/bada/discovery/ble/BleAdvertisePayload.kt`, `app/src/main/kotlin/dev/bluehouse/bada/send/SendBootstrapPlan.kt`, `app/src/main/kotlin/dev/bluehouse/bada/send/SendActivity.kt`
+**Validated devices:** vivo X300 Ultra (`V2547A`, AirFree debug) -> Galaxy S26 Ultra (`SM-S948N`, stock Quick Share / ShareLive)
+**Companion code:** `discovery-android/src/main/kotlin/app/airfree/android/discovery/bootstrap/BleGattInitialControlClient.kt`, `discovery-android/src/main/kotlin/app/airfree/android/discovery/ble/BleAdvertisePayload.kt`, `app/src/main/kotlin/app/airfree/android/send/SendBootstrapPlan.kt`, `app/src/main/kotlin/app/airfree/android/send/SendActivity.kt`
 
 ## Current conclusion
 
-The previous version of this note claimed that LibreDrop, or any other
+The previous version of this note claimed that AirFree, or any other
 non-GMS sender, could not complete a BLE GATT bootstrap into a Samsung
 Quick Share receiver because Samsung enforced a Google-account-bound
 `SenderCertificate` gate before registering the per-peer Weave handler.
 
 That conclusion is wrong for the validated Galaxy S26 Ultra + vivo X300
-Ultra pair. A BLE-GATT-only transfer from LibreDrop on vivo to stock
+Ultra pair. A BLE-GATT-only transfer from AirFree on vivo to stock
 Quick Share on Galaxy reached receiver consent and completed the file
 transfer successfully.
 
@@ -31,10 +31,10 @@ Environment:
 
 - Galaxy S26 Ultra was on the stock Quick Share receive screen and showed
   `Ready to receive`.
-- vivo X300 Ultra ran `dev.bluehouse.bada.debug`.
+- vivo X300 Ultra ran `app.airfree.android.debug`.
 - Both devices had Bluetooth enabled.
 - Neither phone was connected to Wi-Fi for the successful transfer, so
-  LibreDrop selected `route=ble-gatt`; no Wi-Fi LAN route was available.
+  AirFree selected `route=ble-gatt`; no Wi-Fi LAN route was available.
 
 Successful run:
 
@@ -47,9 +47,9 @@ Successful run:
 
 Earlier failed rounds in the same debug loop were test-harness artifacts.
 ADB-launched public `file://` and MediaStore `content://` URIs materialized
-inside LibreDrop as zero-byte payloads, and Galaxy rejected the
+inside AirFree as zero-byte payloads, and Galaxy rejected the
 `IntroductionFrame` because file size must be larger than zero. Copying the
-test file into LibreDrop's app-private external files directory made the
+test file into AirFree's app-private external files directory made the
 same 1 MiB payload resolve as `size=1048576`, after which the BLE GATT
 transfer succeeded.
 
@@ -59,13 +59,13 @@ Treat Samsung `gchm No handler registered` lines as diagnostic noise unless
 they correlate with lack of protocol progress. They are useful only when
 combined with sender and receiver state:
 
-- If LibreDrop never reaches UKEY2 / `ConnectionResponse` / introduction
+- If AirFree never reaches UKEY2 / `ConnectionResponse` / introduction
   milestones and Galaxy never shows a consent prompt, the log may still
   point at a GATT routing problem.
 - If Galaxy shows the consent prompt, or either side reaches Nearby sharing
   frames, the same log line is not evidence that the receiver rejected the
   peer.
-- UI state and LibreDrop outbound milestones are the source of truth for
+- UI state and AirFree outbound milestones are the source of truth for
   this path.
 
 ## Product behavior
@@ -102,9 +102,9 @@ payloads unless the app can read them with a real grant. A reliable harness
 payload is an app-private external file such as:
 
 ```text
-/sdcard/Android/data/dev.bluehouse.bada.debug/files/samsung-cert-gate.bin
+/sdcard/Android/data/app.airfree.android.debug/files/samsung-cert-gate.bin
 ```
 
-Launch it with `ACTION_SEND`, then verify in LibreDrop logs that the resolved
+Launch it with `ACTION_SEND`, then verify in AirFree logs that the resolved
 file size is non-zero before interpreting any receiver failure as a protocol
 failure.

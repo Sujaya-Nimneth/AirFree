@@ -7,7 +7,7 @@
   presented as a bottom sheet — the same shape stock Quick Share uses
   for its receive prompt, and the same scrim + DraggableSheetLayout
   structure as the send sheet (activity_send.xml), hosted by the
-  translucent Theme.Bada.ReceiveSheet:
+  translucent Theme.AirFree.ReceiveSheet:
 
     1. consent_sheet_root — transparent full-screen FrameLayout. The
        window behind shows through with a soft 0.2 dim; tapping the
@@ -69,7 +69,7 @@
       (matching the 28dp card radius) is applied in code on
       consent_card_frame — see ConsentTrampolineActivity.wireBottomSheet.
     -->
-    <dev.bluehouse.bada.ui.sheet.DraggableSheetLayout
+    <app.airfree.android.ui.sheet.DraggableSheetLayout
         android:id="@+id/consent_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
 
             <!-- Horizontal "pill" determinate bar; ConsentTrampolineActivity
                  animates the blue fill toward each progress fraction. -->
-            <dev.bluehouse.bada.ui.sheet.RoundedProgressBar
+            <app.airfree.android.ui.sheet.RoundedProgressBar
                 android:id="@+id/consent_receiving_progress"
                 android:layout_width="220dp"
                 android:layout_height="8dp"
@@ -429,7 +429,7 @@
               Button row implemented as FrameLayout-wrapped
               TextView pairs instead of plain `<Button>`. Multiple
               attempts at centering Button text via the
-              `Widget.Bada.Button` style (gravity=center,
+              `Widget.AirFree.Button` style (gravity=center,
               textAlignment=center, paddingStart/End reset,
               drawablePadding=0dp, iconGravity=textTop, etc.) all
               left Korean labels visibly LEFT of the button
@@ -477,7 +477,7 @@
                         android:paddingHorizontal="24dp"
                         android:paddingVertical="12dp"
                         android:text="@string/consent_state_close"
-                        android:textAppearance="@style/TextAppearance.Bada.Button"
+                        android:textAppearance="@style/TextAppearance.AirFree.Button"
                         android:textColor="?android:attr/textColorPrimary" />
 
                 </FrameLayout>
@@ -506,7 +506,7 @@
                         android:paddingHorizontal="24dp"
                         android:paddingVertical="12dp"
                         android:text="@string/consent_state_view_image"
-                        android:textAppearance="@style/TextAppearance.Bada.Button"
+                        android:textAppearance="@style/TextAppearance.AirFree.Button"
                         android:textColor="?android:attr/textColorPrimary" />
 
                 </FrameLayout>
@@ -556,6 +556,6 @@
 
     </ScrollView>
 
-    </dev.bluehouse.bada.ui.sheet.DraggableSheetLayout>
+    </app.airfree.android.ui.sheet.DraggableSheetLayout>
 
 </FrameLayout>

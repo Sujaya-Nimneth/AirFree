@@ -1,6 +1,6 @@
-# Bada
+# AirFree
 
-Bada is an Android app for sending and receiving files with **Quick
+AirFree is an Android app for sending and receiving files with **Quick
 Share / Nearby Share** peers without using Google Play Services for the
 protocol implementation.
 
@@ -8,8 +8,8 @@ It targets interop with stock Android Quick Share, NearDrop on macOS, and
 Quick Share on Windows. AirDrop, AWDL, iPhone discovery, and Apple-side
 interop are out of scope.
 
-<img src="docs/assets/send-ui.jpg" alt="Bada send UI screenshot" width="360">
-<img src="docs/assets/settings.jpg" alt="Bada settings UI screenshot" width="360">
+<img src="docs/assets/send-ui.jpg" alt="AirFree send UI screenshot" width="360">
+<img src="docs/assets/settings.jpg" alt="AirFree settings UI screenshot" width="360">
 
 ## What It Does
 
@@ -23,18 +23,18 @@ interop are out of scope.
 - Shows the same 4-digit confirmation PIN flow users expect from Quick Share.
 - Lets you choose the advertised Quick Share device name shown to senders.
 
-Bada is still an early project. Current builds support both same-LAN shared Wi-Fi mode and
+AirFree is still an early project. Current builds support both same-LAN shared Wi-Fi mode and
 Wi-Fi Direct mode when sending files to or receiving files from stock Android
 Quick Share devices.
 
 ## Install
 
-Bada supports Android 7.0 or newer (`minSdk = 24`).
+AirFree supports Android 7.0 or newer (`minSdk = 24`).
 
 ### Download a pre-built APK
 
 End users can install the signed release APK from the
-[GitHub Releases page](https://github.com/kyujin-cho/LibreDrop/releases).
+[GitHub Releases page](https://github.com/AirFree/AirFree-android/releases).
 
 1. Open the latest release and download the `.apk` asset.
 2. If Android prompts for it, allow your browser or file manager to install
@@ -57,16 +57,16 @@ Requirements:
 - JDK 17 and an Android SDK.
 - Wi-Fi and Bluetooth enabled for the best interop coverage.
 
-The debug package id is `dev.bluehouse.bada.debug`; release builds use
-`dev.bluehouse.bada`.
+The debug package id is `app.AirFree.android.debug`; release builds use
+`app.AirFree.android`.
 
 ## Use It
 
 ### Receive
 
-1. Open Bada and grant the requested permissions.
+1. Open AirFree and grant the requested permissions.
 2. Leave the receiver service running. The persistent notification shows the
-   Wi-Fi network Bada is receiving on.
+   Wi-Fi network AirFree is receiving on.
 3. Use **Always visible** when you want other devices to see this phone even
    when no sender pulse is active.
 4. Keep the default save location, or choose another folder from **Save
@@ -82,7 +82,7 @@ Downloads folder.
 2. Wait for a nearby peer row to appear.
 3. Tap the peer, compare the PIN, and complete the transfer.
 
-To send a whole folder, open Bada and tap **Send folder**.
+To send a whole folder, open AirFree and tap **Send folder**.
 
 ## Compatibility
 
@@ -106,7 +106,7 @@ Networking notes:
 
 ## Permissions
 
-Bada asks for permissions tied to receiving, discovery, and transfer
+AirFree asks for permissions tied to receiving, discovery, and transfer
 visibility, plus one for its own update flow:
 
 - **Nearby Wi-Fi devices**: discovers and advertises Quick Share peers on the
@@ -118,15 +118,15 @@ visibility, plus one for its own update flow:
 - **Notifications**: shows the foreground receiver, incoming consent prompts,
   and transfer progress.
 - **Location on older Android versions**: Android 11 and lower route BLE scan
-  results and some Wi-Fi APIs through location permissions. Bada does not
+  results and some Wi-Fi APIs through location permissions. AirFree does not
   use physical location.
 - **Battery optimization exemption**: optional, but useful on OEM builds that
   aggressively stop background foreground services.
 - **Install unknown apps** (`REQUEST_INSTALL_PACKAGES`): lets the in-app
-  self-update install a newer Bada APK downloaded from GitHub releases; the
+  self-update install a newer AirFree APK downloaded from GitHub releases; the
   system still shows its own confirm dialog, and the grant is opt-in.
 
-Bada also polls GitHub releases every 6 hours in the background to notify you
+AirFree also polls GitHub releases every 6 hours in the background to notify you
 of new versions; this can be turned off with the **Automatic update check**
 toggle in Settings.
 
@@ -134,7 +134,7 @@ toggle in Settings.
 
 - If no peers appear, first put both devices on the same Wi-Fi network and
   disable guest/client isolation.
-- If a stock Android sender cannot see Bada, open Bada and enable
+- If a stock Android sender cannot see AirFree, open AirFree and enable
   **Always visible**.
 - If Samsung logs show `No handler registered`, check whether the sender or
   receiver UI is still progressing before treating it as a failure.

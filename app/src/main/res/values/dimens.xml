@@ -17,9 +17,37 @@
     <dimen name="settings_content_bottom_padding">24dp</dimen>
 
     <!-- Design bottom padding for the SendActivity bottom
-         sheet (dev.bluehouse.bada.ui.sheet.DraggableSheetLayout). The
+         sheet (app.airfree.android.ui.sheet.DraggableSheetLayout). The
          navigation-bar inset is added on top of this at runtime by
          DraggableSheetLayout.applyBottomInset so the card content clears
          the system nav buttons. -->
     <dimen name="send_sheet_base_bottom_padding">8dp</dimen>
+
+    <!-- AirFree design tokens (port of assets/design-tokens.json).
+         4dp-based spacing rhythm, glass radii, 48dp touch target,
+         24dp icon, 1.75dp-equivalent stroke as a hairline dimen. -->
+    <dimen name="af_space_1">4dp</dimen>
+    <dimen name="af_space_2">8dp</dimen>
+    <dimen name="af_space_3">12dp</dimen>
+    <dimen name="af_space_4">16dp</dimen>
+    <dimen name="af_space_6">24dp</dimen>
+    <dimen name="af_space_8">32dp</dimen>
+    <dimen name="af_space_12">48dp</dimen>
+
+    <dimen name="af_radius_sm">12dp</dimen>
+    <dimen name="af_radius_card">20dp</dimen>
+    <dimen name="af_radius_glass">24dp</dimen>
+    <dimen name="af_radius_pill">999dp</dimen>
+
+    <dimen name="af_touch_target_min">48dp</dimen>
+    <dimen name="af_touch_gap_min">8dp</dimen>
+    <dimen name="af_icon_size">24dp</dimen>
+    <dimen name="af_glass_border">1dp</dimen>
+    <dimen name="af_focus_ring_width">2dp</dimen>
+
+    <dimen name="af_text_display">34sp</dimen>
+    <dimen name="af_text_heading">22sp</dimen>
+    <dimen name="af_text_title">16sp</dimen>
+    <dimen name="af_text_body">14sp</dimen>
+    <dimen name="af_text_label">12sp</dimen>
 </resources>

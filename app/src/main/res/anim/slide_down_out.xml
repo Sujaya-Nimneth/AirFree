@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Window exit animation for the SendActivity bottom sheet
-  (Theme.Bada.SendSheet). Slides the window back down below the
+  (Theme.AirFree.SendSheet). Slides the window back down below the
   bottom edge as the activity finishes.
 -->
 <translate xmlns:android="http://schemas.android.com/apk/res/android"

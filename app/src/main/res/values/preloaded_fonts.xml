@@ -8,6 +8,6 @@
 -->
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/google_sans_flex</item>
+        <item>@font/airfree_inter</item>
     </array>
 </resources>

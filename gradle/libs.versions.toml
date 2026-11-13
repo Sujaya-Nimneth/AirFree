@@ -91,7 +91,7 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "androidxLifecycle" }
 
 # WorkManager (Kotlin/coroutines flavour) — drives the periodic GitHub update
-# check (UpdateCheckWorker) scheduled from BadaApplication.onCreate.
+# check (UpdateCheckWorker) scheduled from AirFreeApplication.onCreate.
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidxWork" }
 
 # Kotlin coroutines

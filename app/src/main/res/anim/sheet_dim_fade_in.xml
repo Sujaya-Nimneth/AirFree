@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Window OPEN animation for the consent sheet (Theme.Bada.ReceiveSheet).
+  Window OPEN animation for the consent sheet (Theme.AirFree.ReceiveSheet).
 
   A pure alpha fade — deliberately NO scale, unlike popup_fade_in /
   popup_fade_in_fast. The consent sheet window is a full-screen

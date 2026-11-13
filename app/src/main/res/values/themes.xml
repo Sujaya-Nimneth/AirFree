@@ -26,14 +26,17 @@
           uses dark glyphs on the light background; night mode uses
           light glyphs on the dark background.
     -->
-    <style name="Theme.Bada" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+    <style name="Theme.AirFree" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorPrimaryDark">@color/brand_primary</item>
         <item name="colorOnPrimary">@color/brand_on_primary</item>
+        <!-- AirFree accent: amber CTA + sky focus ring. -->
+        <item name="colorAccent">@color/af_cta</item>
+        <item name="colorSecondary">@color/af_cta</item>
 
         <!--
-            App-wide brand face. Google Sans Flex is delivered via
-            Downloadable Fonts (see `res/font/google_sans_flex.xml`);
+            App-wide brand face. Inter is delivered via
+            Downloadable Fonts (see `res/font/airfree_inter.xml`);
             its glyph coverage is Latin + extended Latin only, and
             the platform's standard glyph-fallback chain takes over
             for Hangul / CJK so Korean strings keep rendering with
@@ -46,8 +49,8 @@
             (Toolbar title, AlertDialog title/message, system text
             views) read the latter.
         -->
-        <item name="fontFamily">@font/google_sans_flex</item>
-        <item name="android:fontFamily">@font/google_sans_flex</item>
+        <item name="fontFamily">@font/airfree_inter</item>
+        <item name="android:fontFamily">@font/airfree_inter</item>
 
         <!--
           Page and floating surfaces come from our own tokens rather than
@@ -70,8 +73,8 @@
           own overflow) and `popupMenuStyle` (any in-code PopupMenu
           we open later) point to the same style for consistency.
         -->
-        <item name="actionOverflowMenuStyle">@style/PopupMenu.Bada</item>
-        <item name="popupMenuStyle">@style/PopupMenu.Bada</item>
+        <item name="actionOverflowMenuStyle">@style/PopupMenu.AirFree</item>
+        <item name="popupMenuStyle">@style/PopupMenu.AirFree</item>
 
         <!--
           Global button styling. Replaces AppCompat's default flat
@@ -82,43 +85,43 @@
           (`?android:attr/borderlessButtonStyle`) opt out
           per-Button.
         -->
-        <item name="buttonStyle">@style/Widget.Bada.Button</item>
-        <item name="android:buttonStyle">@style/Widget.Bada.Button</item>
+        <item name="buttonStyle">@style/Widget.AirFree.Button</item>
+        <item name="android:buttonStyle">@style/Widget.AirFree.Button</item>
 
         <!--
           Override the platform-default Button text appearance
           (`TextAppearance.AppCompat.Widget.Button`) which forces
           `textAllCaps=true`. Using `?android:attr/textAppearanceButton`
           as the resolution path means even Buttons that opt out of
-          our `Widget.Bada.Button` style (e.g. the
+          our `Widget.AirFree.Button` style (e.g. the
           `?android:attr/borderlessButtonStyle` Skip / Reset variants)
           still get the casing-preserved text.
         -->
-        <item name="android:textAppearanceButton">@style/TextAppearance.Bada.Button</item>
+        <item name="android:textAppearanceButton">@style/TextAppearance.AirFree.Button</item>
     </style>
 
     <!--
       Button text appearance with `textAllCaps=false` baked in. Every
       Button in the app reads its text style from this appearance via
-      either `Widget.Bada.Button` (the buttonStyle override
+      either `Widget.AirFree.Button` (the buttonStyle override
       above) or the activity-theme `android:textAppearanceButton`
       attribute, so the previously-uppercased labels render in their
       natural string-resource casing ("Send files" stays "Send files"
       instead of becoming "SEND FILES"). Bold weight is kept here so
       borderless variants — which inherit this appearance but not the
-      Widget.Bada.Button style — still read with the same visual
+      Widget.AirFree.Button style — still read with the same visual
       weight as the framed buttons.
     -->
-    <style name="TextAppearance.Bada.Button" parent="TextAppearance.AppCompat.Widget.Button">
+    <style name="TextAppearance.AirFree.Button" parent="TextAppearance.AppCompat.Widget.Button">
         <item name="android:textAllCaps">false</item>
         <item name="textAllCaps">false</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Widget.Bada.Button" parent="Widget.AppCompat.Button">
+    <style name="Widget.AirFree.Button" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/btn_frosted_background</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:textAppearance">@style/TextAppearance.Bada.Button</item>
+        <item name="android:textAppearance">@style/TextAppearance.AirFree.Button</item>
         <!--
           Two-pronged textAllCaps override (android: + bare attr)
           guarantees the casing is preserved no matter which
@@ -187,7 +190,7 @@
         <item name="iconPadding">0dp</item>
     </style>
 
-    <style name="PopupMenu.Bada" parent="Widget.AppCompat.PopupMenu.Overflow">
+    <style name="PopupMenu.AirFree" parent="Widget.AppCompat.PopupMenu.Overflow">
         <item name="android:popupBackground">@drawable/popup_menu_background</item>
         <!--
           `overlapAnchor=false` pushes the popup down below the
@@ -213,14 +216,14 @@
           (not heavy) scrim behind the sheet, matching the
           "light scrim, not fully dark" look.
         * windowAnimationStyle — slide-up enter / slide-down exit
-          (see WindowAnimation.Bada.SendSheet) so the window rises
+          (see WindowAnimation.AirFree.SendSheet) so the window rises
           from the bottom edge in step with the sheet's own overshoot
           entrance.
 
-      Inherits Theme.Bada so the brand font, button styling and color
+      Inherits Theme.AirFree so the brand font, button styling and color
       tokens stay identical to the rest of the app.
     -->
-    <style name="Theme.Bada.SendSheet" parent="Theme.Bada">
+    <style name="Theme.AirFree.SendSheet" parent="Theme.AirFree">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -229,23 +232,23 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.2</item>
         <!-- FAST open fade (~120ms) so the view slide-up starts sooner; see
-             WindowAnimation.Bada.SendSheet.Fast. Consent sheet stays on the 200ms one. -->
-        <item name="android:windowAnimationStyle">@style/WindowAnimation.Bada.SendSheet.Fast</item>
+             WindowAnimation.AirFree.SendSheet.Fast. Consent sheet stays on the 200ms one. -->
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.AirFree.SendSheet.Fast</item>
     </style>
 
     <!--
-      In-app full-screen send screen (SendActivityInApp). Same as Theme.Bada but
+      In-app full-screen send screen (SendActivityInApp). Same as Theme.AirFree but
       with a fade/morph window OPEN so the sending screen DISSOLVES in over the main
       screen (per the "first screen morphs into the sending screen" design) instead
       of the default OEM slide. CLOSE fades back out. The EXTERNAL share-sheet
-      SendActivity keeps Theme.Bada.SendSheet (unchanged).
+      SendActivity keeps Theme.AirFree.SendSheet (unchanged).
     -->
-    <style name="Theme.Bada.SendInApp" parent="Theme.Bada">
-        <item name="android:windowAnimationStyle">@style/WindowAnimation.Bada.SendInApp</item>
+    <style name="Theme.AirFree.SendInApp" parent="Theme.AirFree">
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.AirFree.SendInApp</item>
     </style>
 
     <!--
-      Window enter/exit for the IN-APP full-screen send (Theme.Bada.SendInApp).
+      Window enter/exit for the IN-APP full-screen send (Theme.AirFree.SendInApp).
       OPEN enter = popup_fade_in (alpha 0->1 + a gentle 0.94->1.0 scale, 200ms
       decelerate) so the sending screen fades/morphs into place; OPEN exit = no_anim
       so the main screen holds underneath and the new screen dissolves OVER it (the
@@ -253,7 +256,7 @@
       CLOSE enter = no_anim so the main screen is simply revealed. Unlike the sheet,
       there is no inner view-slide here — the window fade IS the entrance.
     -->
-    <style name="WindowAnimation.Bada.SendInApp" parent="@android:style/Animation.Activity">
+    <style name="WindowAnimation.AirFree.SendInApp" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/popup_fade_in</item>
         <item name="android:activityOpenExitAnimation">@anim/no_anim</item>
         <item name="android:activityCloseEnterAnimation">@anim/no_anim</item>
@@ -265,7 +268,7 @@
     </style>
 
     <!--
-      Window enter/exit animation pair for Theme.Bada.SendSheet.
+      Window enter/exit animation pair for Theme.AirFree.SendSheet.
       OPEN = a soft FADE only (popup_fade_in: alpha 0->1 + a tiny scale, 200ms) —
       deliberately NOT a vertical slide. The slide-up is done as a VIEW-level
       animation INSIDE the window by DraggableSheetLayout.playEntrance, which
@@ -275,9 +278,9 @@
       "appear already settled" (fade only, no slide) on OnePlus. A fade here (no
       translate) lets the 0.2 dim scrim appear smoothly WITHOUT competing with the
       view slide. CLOSE keeps slide_down_out. (Style is also reused by
-      Theme.Bada.ReceiveSheet.)
+      Theme.AirFree.ReceiveSheet.)
     -->
-    <style name="WindowAnimation.Bada.SendSheet" parent="@android:style/Animation.Activity">
+    <style name="WindowAnimation.AirFree.SendSheet" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/popup_fade_in</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_down_out</item>
         <item name="android:taskOpenEnterAnimation">@anim/popup_fade_in</item>
@@ -285,17 +288,17 @@
     </style>
 
     <!--
-      FAST window enter/exit pair — used ONLY by Theme.Bada.SendSheet (the
-      send picker). Identical to WindowAnimation.Bada.SendSheet except the
+      FAST window enter/exit pair — used ONLY by Theme.AirFree.SendSheet (the
+      send picker). Identical to WindowAnimation.AirFree.SendSheet except the
       OPEN enter uses the ~120ms popup_fade_in_fast instead of the 200ms
       popup_fade_in, so onEnterAnimationComplete() fires sooner and the
       DraggableSheetLayout view slide-up STARTS sooner — the "bridge starts the
       animation sooner / over the still-fading chooser" feel. CLOSE is unchanged
-      (slide_down_out). The consent sheet (Theme.Bada.ReceiveSheet) keeps the
-      original 200ms WindowAnimation.Bada.SendSheet above, so only the send
+      (slide_down_out). The consent sheet (Theme.AirFree.ReceiveSheet) keeps the
+      original 200ms WindowAnimation.AirFree.SendSheet above, so only the send
       sheet's entrance speeds up.
     -->
-    <style name="WindowAnimation.Bada.SendSheet.Fast" parent="@android:style/Animation.Activity">
+    <style name="WindowAnimation.AirFree.SendSheet.Fast" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/popup_fade_in_fast</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_down_out</item>
         <item name="android:taskOpenEnterAnimation">@anim/popup_fade_in_fast</item>
@@ -304,7 +307,7 @@
 
     <!--
       Translucent bottom-sheet theme for ConsentTrampolineActivity.
-      Mirrors Theme.Bada.SendSheet:
+      Mirrors Theme.AirFree.SendSheet:
       the activity window is made transparent and non-fullscreen so its
       layout — a transparent FrameLayout scrim hosting a bottom-anchored
       DraggableSheetLayout card — floats over whatever is behind it like
@@ -313,24 +316,24 @@
         * windowIsTranslucent / transparent windowBackground /
           windowContentOverlay=null — the window has no opaque surface;
           only the sheet card and a light dim layer paint. This replaces
-          the old centered Theme.Bada.ConsentDialog (windowIsFloating
+          the old centered Theme.AirFree.ConsentDialog (windowIsFloating
           dialog) so the consent surface reads as a bottom sheet.
         * windowNoTitle — no action-bar title strip above the sheet.
         * backgroundDimEnabled + backgroundDimAmount=0.2 — a soft scrim
           behind the sheet, matching the "light scrim" look and
           the sender sheet's dim.
         * windowAnimationStyle — slide-up enter / slide-down exit
-          (reuses WindowAnimation.Bada.SendSheet) so the window
+          (reuses WindowAnimation.AirFree.SendSheet) so the window
           rises from the bottom edge in step with the sheet's own
           overshoot entrance.
 
-      Inherits Theme.Bada so the brand font, button styling and color
-      tokens (including the Widget.Bada.Button frosted style the consent
+      Inherits Theme.AirFree so the brand font, button styling and color
+      tokens (including the Widget.AirFree.Button frosted style the consent
       / completed panels rely on) stay identical to the rest of the app
       — no need to re-declare them here as the old Dialog theme did,
-      because Theme.Bada already carries them.
+      because Theme.AirFree already carries them.
     -->
-    <style name="Theme.Bada.ReceiveSheet" parent="Theme.Bada">
+    <style name="Theme.AirFree.ReceiveSheet" parent="Theme.AirFree">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -338,11 +341,11 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.2</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimation.Bada.ReceiveSheet</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.AirFree.ReceiveSheet</item>
     </style>
 
     <!--
-      Window enter/exit pair for Theme.Bada.ReceiveSheet. The consent
+      Window enter/exit pair for Theme.AirFree.ReceiveSheet. The consent
       sheet lives in its OWN task (taskAffinity="", launched with
       FLAG_ACTIVITY_NEW_TASK from the notification tap / full-screen
       intent), so the task transitions — including taskToFront for a
@@ -354,7 +357,7 @@
       view-level slide-up. Exit slides the window down, the same close
       the send sheet uses.
     -->
-    <style name="WindowAnimation.Bada.ReceiveSheet" parent="@android:style/Animation.Activity">
+    <style name="WindowAnimation.AirFree.ReceiveSheet" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/sheet_dim_fade_in</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_down_out</item>
         <item name="android:taskOpenEnterAnimation">@anim/sheet_dim_fade_in</item>
@@ -365,12 +368,12 @@
 
     <!--
       Translucent window for the Name Card transfer screen (NameCardTransferActivity).
-      Like Theme.Bada.ReceiveSheet it floats over whatever is behind it, but with NO dim
+      Like Theme.AirFree.ReceiveSheet it floats over whatever is behind it, but with NO dim
       and no window animation, so the previous screen shows through fully and the only
-      motion is the screen's own view-level entrance/exit. Inherits Theme.Bada, so colors,
+      motion is the screen's own view-level entrance/exit. Inherits Theme.AirFree, so colors,
       fonts and button styling are unchanged — this only controls window transparency.
     -->
-    <style name="Theme.Bada.NameCardTransfer" parent="Theme.Bada">
+    <style name="Theme.AirFree.NameCardTransfer" parent="Theme.AirFree">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -389,7 +392,16 @@
       action row hugs the bottom of the toolbar surface, which is
       where vivo positions theirs.
     -->
-    <style name="TextAppearance.Bada.ToolbarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <!-- AirFree primary call-to-action: the one amber action per view.
+         Dark ink on amber passes 4.5:1 in light mode; night uses the
+         lighter amber with dark ink too (both defined in colors.xml). -->
+    <style name="Widget.AirFree.Button.Cta" parent="Widget.AirFree.Button">
+        <item name="android:background">@drawable/btn_airfree_cta</item>
+        <item name="android:textColor">@color/af_on_cta</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.AirFree.ToolbarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -406,7 +418,7 @@
       `app:itemTextAppearanceInactive` on BottomNavigationView so
       neither state overrides the size.
     -->
-    <style name="TextAppearance.Bada.BottomNavLabel" parent="TextAppearance.AppCompat.Caption">
+    <style name="TextAppearance.AirFree.BottomNavLabel" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">12sp</item>
     </style>
 
@@ -431,7 +443,7 @@
       both keeps behavior identical regardless of which path the
       runtime picks.
     -->
-    <style name="ThemeOverlay.Bada.PopupMenu" parent="ThemeOverlay.AppCompat.DayNight">
+    <style name="ThemeOverlay.AirFree.PopupMenu" parent="ThemeOverlay.AppCompat.DayNight">
         <item name="listPreferredItemHeightSmall">38dp</item>
         <item name="android:listPreferredItemHeightSmall">38dp</item>
     </style>
@@ -448,7 +460,7 @@
       so popup menus and dialog action items elsewhere keep their
       default Material ripples.
     -->
-    <style name="ThemeOverlay.Bada.ToolbarNoRipple" parent="">
+    <style name="ThemeOverlay.AirFree.ToolbarNoRipple" parent="">
         <item name="actionBarItemBackground">@drawable/toolbar_action_background</item>
         <item name="android:actionBarItemBackground">@drawable/toolbar_action_background</item>
     </style>
@@ -461,7 +473,7 @@
       the placeholder's soft corners and the rows would read as visually
       inconsistent.
     -->
-    <style name="ShapeAppearanceOverlay.Bada.CreditAvatar" parent="">
+    <style name="ShapeAppearanceOverlay.AirFree.CreditAvatar" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>

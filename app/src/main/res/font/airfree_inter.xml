@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    AirFree brand face: Inter via Google Play Services Downloadable Fonts.
+
+    Inter is a Google Font; the provider delivers the variable binary cached at
+    the platform level so the app ships no TTF. Glyph coverage is Latin +
+    extended Latin; CJK / Hangul strings fall back to the platform font through
+    the standard glyph-fallback chain, so no per-locale theme override is needed.
+    If the provider is unavailable (e.g. a device without Play Services), the
+    platform falls back to sans-serif and the UI remains fully usable.
+-->
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:fontProviderAuthority="com.google.android.gms.fonts"
+    app:fontProviderPackage="com.google.android.gms"
+    app:fontProviderQuery="Inter"
+    app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
+</font-family>

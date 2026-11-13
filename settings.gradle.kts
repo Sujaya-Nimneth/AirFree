@@ -21,7 +21,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Bada"
+rootProject.name = "AirFree"
 
 include(":app")
 include(":radio-helper")

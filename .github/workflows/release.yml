@@ -59,7 +59,9 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: ./gradlew :app:assembleRelease --refresh-dependencies --stacktrace
+        # Compile the update/bug-report host from the repository running this
+        # workflow so the shipped APK never points at a hardcoded upstream.
+        run: ./gradlew :app:assembleRelease -PAIRFREE_UPDATE_REPO=${{ github.repository }} --refresh-dependencies --stacktrace
 
       - name: Resolve signed APK path
         id: release_apk

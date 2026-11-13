@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Placeholder launcher foreground. A proper artwork drop replaces this
-  before public release; the geometry below is just a centered ring so
-  the bootstrap APK has *something* recognizable in the launcher.
+  AirFree launcher foreground. Adaptive-icon contract: 108dp viewport with
+  the glyph kept inside the central 72dp safe zone. The "air wave" is three
+  concentric arcs radiating from a centre dot — the broadcasts that connect
+  two nearby devices. Near-white so it reads on the sky-blue gradient bg.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+    <!-- centre dot -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M54,30 C40.745,30 30,40.745 30,54 C30,67.255 40.745,78 54,78 C67.255,78 78,67.255 78,54 C78,40.745 67.255,30 54,30 Z M54,38 C62.837,38 70,45.163 70,54 C70,62.837 62.837,70 54,70 C45.163,70 38,62.837 38,54 C38,45.163 45.163,38 54,38 Z" />
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,50a4,4 0 1,0 0,8a4,4 0 1,0 0,-8z" />
+    <!-- three arcs, opening to the right (air waves) -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M46,40 C36,40 30,46 30,54 C30,62 36,68 46,68 L46,63 C39,63 35,59 35,54 C35,49 39,45 46,45 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M50,32 C36,32 24,42 24,54 C24,66 36,76 50,76 L50,71 C39,71 29,63 29,54 C29,45 39,37 50,37 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,24 C36,24 18,38 18,54 C18,70 36,84 54,84 L54,79 C39,79 23,67 23,54 C23,41 39,29 54,29 Z" />
 </vector>

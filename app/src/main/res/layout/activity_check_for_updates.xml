@@ -43,7 +43,7 @@
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="@string/update_activity_label"
         app:titleCentered="false"
-        app:titleTextAppearance="@style/TextAppearance.Bada.ToolbarTitle"
+        app:titleTextAppearance="@style/TextAppearance.AirFree.ToolbarTitle"
         app:titleTextColor="?android:attr/textColorPrimary" />
 
     <!--
@@ -90,7 +90,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/update_primary_button"
-                style="@style/Widget.Bada.Button"
+                style="@style/Widget.AirFree.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"

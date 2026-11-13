@@ -1,5 +1,5 @@
 // :radio-helper — standalone companion APK whose ONLY job is to toggle
-// Wi-Fi and Bluetooth on behalf of Bada.
+// Wi-Fi and Bluetooth on behalf of AirFree.
 //
 // WHY A SEPARATE APK: the radio-enable APIs are targetSdkVersion-gated, not
 // permission-gated. Per the AOSP docs, WifiManager.setWifiEnabled() works
@@ -15,14 +15,14 @@ plugins {
 }
 
 android {
-    namespace = "dev.bluehouse.bada.radiohelper"
+    namespace = "app.airfree.android.radiohelper"
     compileSdk =
         libs.versions.compileSdk
             .get()
             .toInt()
 
     defaultConfig {
-        applicationId = "dev.bluehouse.bada.radiohelper"
+        applicationId = "app.airfree.android.radiohelper"
         minSdk =
             libs.versions.minSdk
                 .get()

@@ -49,7 +49,14 @@
       the (transparent) toolbar so the entire screen reads as one
       ambient surface, per spec.
     -->
-    <dev.bluehouse.bada.ui.VisibilityPulseView
+        <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/aurora_backdrop"
+        android:importantForAccessibility="no" />
+
+<app.airfree.android.ui.VisibilityPulseView
         android:id="@+id/main_always_visible_pulse"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -91,25 +98,29 @@
         android:background="@android:color/transparent"
         android:paddingEnd="12dp"
         android:paddingTop="@dimen/app_toolbar_padding_top"
-        android:theme="@style/ThemeOverlay.Bada.ToolbarNoRipple"
-        app:popupTheme="@style/ThemeOverlay.Bada.PopupMenu"
+        android:theme="@style/ThemeOverlay.AirFree.ToolbarNoRipple"
+        app:popupTheme="@style/ThemeOverlay.AirFree.PopupMenu"
         app:title="@string/app_name"
         app:titleCentered="false"
-        app:titleTextAppearance="@style/TextAppearance.Bada.ToolbarTitle"
+        app:titleTextAppearance="@style/TextAppearance.AirFree.ToolbarTitle"
         app:titleTextColor="?android:attr/textColorPrimary">
 
-        <!-- Home tab brand: replaces the "Bada" title text (MainActivity.applyToolbarTitle).
-             drawable-night holds the white variant for dark mode. Toolbar folds a
+        <!-- Home tab brand: the AirFree wordmark (MainActivity.applyToolbarTitle).
+             The toolbar title uses the AirFree display face. Toolbar folds a
              child's start margin into its 16dp content inset, so 24dp here puts the
              letters on the same 24dp edge as the content below. -->
-        <ImageView
+        <TextView
             android:id="@+id/main_toolbar_wordmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="24dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_bada_wordmark" />
+            android:fontFamily="@font/airfree_inter"
+            android:text="@string/app_name"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/af_text_heading"
+            android:textStyle="bold"
+            android:contentDescription="@string/app_name" />
     </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.fragment.app.FragmentContainerView
@@ -150,8 +161,8 @@
         app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/bottom_nav_item_color"
         app:itemRippleColor="@android:color/transparent"
-        app:itemTextAppearanceActive="@style/TextAppearance.Bada.BottomNavLabel"
-        app:itemTextAppearanceInactive="@style/TextAppearance.Bada.BottomNavLabel"
+        app:itemTextAppearanceActive="@style/TextAppearance.AirFree.BottomNavLabel"
+        app:itemTextAppearanceInactive="@style/TextAppearance.AirFree.BottomNavLabel"
         app:itemTextColor="@color/bottom_nav_item_color"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />

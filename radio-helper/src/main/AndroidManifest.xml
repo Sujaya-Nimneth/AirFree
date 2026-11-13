@@ -36,15 +36,15 @@
          background limits don't kill it before it re-establishes the connection. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!-- Only apps signed with the same key (Bada) may bind the
+    <!-- Only apps signed with the same key (AirFree) may bind the
          radio service. The in-process self-test activity is unaffected. -->
     <permission
-        android:name="dev.bluehouse.bada.radiohelper.permission.BIND_RADIO"
+        android:name="app.airfree.android.radiohelper.permission.BIND_RADIO"
         android:protectionLevel="signature" />
 
     <application
         android:allowBackup="false"
-        android:label="Bada Radio Helper">
+        android:label="AirFree Radio Helper">
 
         <!-- Standalone self-test: install this APK alone and tap the
              buttons to confirm the OEM (e.g. ColorOS) honours the
@@ -61,26 +61,26 @@
         <!-- NOTE: the separate "Radio Helper: ADB-WiFi Setup" launcher was
              REMOVED — the user refused a second home-screen icon. The one-time
              pairing controls now live as buttons on SelfTestActivity (the single
-             "Bada Radio Helper" launcher). -->
+             "AirFree Radio Helper" launcher). -->
 
         <!-- Bound by :app via Messenger to flip radios on an NFC tap. -->
         <service
             android:name=".RadioService"
             android:exported="true"
-            android:permission="dev.bluehouse.bada.radiohelper.permission.BIND_RADIO" />
+            android:permission="app.airfree.android.radiohelper.permission.BIND_RADIO" />
 
         <!-- Quick Share auto-detect (AccessibilityService). Watches foreground
              windows; when Google Quick Share's UI (com.google.android.gms,
              class …nearby.sharing.*) comes to the front it runs the helper's
              prepare-share flow (enable Wi-Fi/BT) and restores after. Listed in
-             Settings > Accessibility as "Bada Quick Share auto-detect";
+             Settings > Accessibility as "AirFree Quick Share auto-detect";
              enabled ONCE, re-bound by the OS on every boot (no per-reboot step).
              android:permission BIND_ACCESSIBILITY_SERVICE is REQUIRED by the
              platform so only the system can bind it. -->
         <service
             android:name=".QuickShareWatcherService"
             android:exported="true"
-            android:label="Bada Quick Share auto-detect"
+            android:label="AirFree Quick Share auto-detect"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />

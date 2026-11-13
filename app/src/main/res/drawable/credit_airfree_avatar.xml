@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neutral AirFree contributor avatar: air-wave mark on a sky disc. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <path android:fillColor="#FF2563EB"
+        android:pathData="M32,0a32,32 0 1,0 0,64a32,32 0 1,0 0,-64z" />
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M26,32a3,3 0 1,0 0,6a3,3 0 1,0 0,-6zM22,26 C16,26 13,30 13,35 C13,40 16,44 22,44 L22,41 C18,41 16,38 16,35 C16,32 18,29 22,29 Z M24,21 C16,21 9,27 9,35 C9,43 16,49 24,49 L24,46 C18,46 12,41 12,35 C12,29 18,24 24,24 Z" />
+</vector>

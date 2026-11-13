@@ -61,7 +61,7 @@
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="@string/credit_activity_label"
         app:titleCentered="false"
-        app:titleTextAppearance="@style/TextAppearance.Bada.ToolbarTitle"
+        app:titleTextAppearance="@style/TextAppearance.AirFree.ToolbarTitle"
         app:titleTextColor="?android:attr/textColorPrimary" />
 
     <ScrollView
@@ -106,7 +106,7 @@
                         android:layout_height="56dp"
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardElevation="0dp"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar"
                         app:strokeColor="@color/credit_avatar_stroke"
                         app:strokeWidth="1dp">
 
@@ -115,8 +115,8 @@
                             android:layout_height="match_parent"
                             android:contentDescription="@string/credit_avatar_description"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/credit_kevin_avatar"
-                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar" />
+                            android:src="@drawable/credit_airfree_avatar"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -179,7 +179,7 @@
                         android:layout_height="56dp"
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardElevation="0dp"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar"
                         app:strokeColor="@color/credit_avatar_stroke"
                         app:strokeWidth="1dp">
 
@@ -188,8 +188,8 @@
                             android:layout_height="match_parent"
                             android:contentDescription="@string/credit_avatar_description"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/credit_yeonfeel_avatar"
-                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar" />
+                            android:src="@drawable/credit_airfree_avatar"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -252,7 +252,7 @@
                         android:layout_height="56dp"
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardElevation="0dp"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar"
                         app:strokeColor="@color/credit_avatar_stroke"
                         app:strokeWidth="1dp">
 
@@ -261,8 +261,8 @@
                             android:layout_height="match_parent"
                             android:contentDescription="@string/credit_avatar_description"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/credit_chiyak_avatar"
-                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar" />
+                            android:src="@drawable/credit_airfree_avatar"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -306,7 +306,7 @@
                         android:layout_height="56dp"
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardElevation="0dp"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar"
                         app:strokeColor="@color/credit_avatar_stroke"
                         app:strokeWidth="1dp">
 
@@ -315,8 +315,8 @@
                             android:layout_height="match_parent"
                             android:contentDescription="@string/credit_avatar_description"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/credit_teqhnikacross_avatar"
-                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar" />
+                            android:src="@drawable/credit_airfree_avatar"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -360,7 +360,7 @@
                         android:layout_height="56dp"
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardElevation="0dp"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar"
                         app:strokeColor="@color/credit_avatar_stroke"
                         app:strokeWidth="1dp">
 
@@ -369,8 +369,8 @@
                             android:layout_height="match_parent"
                             android:contentDescription="@string/credit_avatar_description"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/credit_parami_avatar"
-                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Bada.CreditAvatar" />
+                            android:src="@drawable/credit_airfree_avatar"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.AirFree.CreditAvatar" />
 
                     </com.google.android.material.card.MaterialCardView>
 

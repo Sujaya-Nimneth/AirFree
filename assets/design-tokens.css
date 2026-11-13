@@ -1,0 +1,74 @@
+/* AirFree semantic tokens — light mode (default).
+   Generated from assets/design-tokens.json; see docs/brand-guidelines.md.
+   Android consumes the equivalent values from app/src/main/res/values*. */
+
+:root {
+  --af-color-sky: #2563EB;
+  --af-color-sky-strong: #1D4ED8;
+  --af-color-aurora: #7C3AED;
+  --af-color-cta: #D97706;
+  --af-color-on-primary: #FFFFFF;
+  --af-color-on-cta: #0F172A;
+  --af-color-background: #F5F8FF;
+  --af-color-surface: #FFFFFFB8;
+  --af-color-surface-border: #FFFFFF8C;
+  --af-color-text-primary: #0F172A;
+  --af-color-text-secondary: #475569;
+  --af-color-success: #0D8626;
+  --af-color-error: #DC2626;
+
+  --af-space-1: 4px;
+  --af-space-2: 8px;
+  --af-space-3: 12px;
+  --af-space-4: 16px;
+  --af-space-6: 24px;
+  --af-space-8: 32px;
+  --af-space-12: 48px;
+
+  --af-radius-sm: 12px;
+  --af-radius-card: 20px;
+  --af-radius-glass: 24px;
+  --af-radius-pill: 999px;
+
+  --af-duration-fast: 150ms;
+  --af-duration-medium: 300ms;
+  --af-duration-slow: 450ms;
+
+  --af-font-family: 'Inter', system-ui, sans-serif;
+  --af-font-size-display: 34px;
+  --af-font-size-heading: 22px;
+  --af-font-size-title: 16px;
+  --af-font-size-body: 14px;
+  --af-font-size-label: 12px;
+
+  --af-icon-size: 24px;
+  --af-touch-target: 48px;
+  --af-touch-gap: 8px;
+  --af-glass-blur: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --af-color-sky: #7DA9FF;
+    --af-color-sky-strong: #4C7DF0;
+    --af-color-aurora: #A78BFA;
+    --af-color-cta: #FBBF24;
+    --af-color-on-primary: #0B1020;
+    --af-color-on-cta: #0B1020;
+    --af-color-background: #0B1020;
+    --af-color-surface: #1B2440AD;
+    --af-color-surface-border: #FFFFFF24;
+    --af-color-text-primary: #F1F5FD;
+    --af-color-text-secondary: #AAB6CC;
+    --af-color-success: #4ADE80;
+    --af-color-error: #F87171;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --af-duration-fast: 0ms;
+    --af-duration-medium: 0ms;
+    --af-duration-slow: 0ms;
+  }
+}

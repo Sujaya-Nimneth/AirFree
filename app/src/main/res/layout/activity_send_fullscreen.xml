@@ -386,7 +386,7 @@
 
                                     <Button
                                         android:id="@+id/send_bluetooth_off_banner_action"
-                                        style="@style/Widget.Bada.Button"
+                                        style="@style/Widget.AirFree.Button"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="12dp"
@@ -399,7 +399,7 @@
 
                                 </LinearLayout>
 
-                                <dev.bluehouse.bada.ui.sheet.FlowLayout
+                                <app.airfree.android.ui.sheet.FlowLayout
                                     android:id="@+id/send_peer_list"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
@@ -708,7 +708,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp">
 
-                        <dev.bluehouse.bada.ui.BackdropBlurView
+                        <app.airfree.android.ui.BackdropBlurView
                             android:id="@+id/send_cancel_blur"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
@@ -894,7 +894,7 @@
 
                             <Button
                                 android:id="@+id/send_qr_close"
-                                style="@style/Widget.Bada.Button"
+                                style="@style/Widget.AirFree.Button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -908,7 +908,7 @@
 
                             <Button
                                 android:id="@+id/send_qr_copy_link"
-                                style="@style/Widget.Bada.Button"
+                                style="@style/Widget.AirFree.Button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"

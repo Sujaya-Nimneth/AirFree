@@ -138,9 +138,9 @@
 
     <!-- Bind the radio-helper companion APK's RadioService (signature-protected
          BIND_RADIO) so the app can ask it to turn Wi-Fi/Bluetooth on for a transfer
-         and restore them after. Granted only when Bada is signed with the same key
+         and restore them after. Granted only when AirFree is signed with the same key
          as the helper. See the :radio-helper module + RadioHelperClient. -->
-    <uses-permission android:name="dev.bluehouse.bada.radiohelper.permission.BIND_RADIO" />
+    <uses-permission android:name="app.airfree.android.radiohelper.permission.BIND_RADIO" />
 
     <!-- NFC tap-to-share (#NFC). NFC is install-time normal protection;
          BIND_NFC_SERVICE on the HCE service below is the actual gate and is
@@ -247,29 +247,15 @@
          Add-contact screen (ACTION_INSERT), which needs no permission. -->
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
-    <!-- #145: probe whether a coresident pre-Bada install is still present so
-         the launcher can warn the user to uninstall it. The old install
-         registers a duplicate `0xFEF3` GATT advertisement service on the same
-         controller, which causes stock Quick Share senders to read the slot from
-         one service but open the BLE socket against another. Package-visibility
-         filtering on API 30+ silently turns `getPackageInfo` into
-         NameNotFoundException for unknown packages, so the detector cannot find
-         the legacy install without this carve-out. The query is by exact package
-         name only and reveals nothing other than "is a previous app id present?",
-         so the surface stays minimal. -->
     <queries>
-        <package android:name="dev.bluehouse.libredrop" />
-        <package android:name="dev.bluehouse.libredrop.debug" />
-        <package android:name="io.github.kyujincho.wvmg" />
-        <package android:name="io.github.kyujincho.wvmg.debug" />
         <!-- The radio-helper companion APK, bound by RadioHelperClient to flip
              Wi-Fi/Bluetooth for a transfer (release + debug ids). -->
-        <package android:name="dev.bluehouse.bada.radiohelper" />
-        <package android:name="dev.bluehouse.bada.radiohelper.debug" />
+        <package android:name="app.airfree.android.radiohelper" />
+        <package android:name="app.airfree.android.radiohelper.debug" />
     </queries>
 
     <application
-        android:name=".BadaApplication"
+        android:name=".AirFreeApplication"
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -277,10 +263,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Bada">
+        android:theme="@style/Theme.AirFree">
 
         <!--
-            Pre-fetch the Google Sans Flex downloadable font during
+            Pre-fetch the Inter downloadable font during
             install / first launch so the very first frame using the
             theme's `fontFamily` renders against the brand face rather
             than the system fallback while the binary is still being
@@ -299,7 +285,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <!--
-              Long-press on Bada's Quick Settings tile (issue #207). The
+              Long-press on AirFree's Quick Settings tile (issue #207). The
               platform fires ACTION_QS_TILE_PREFERENCES; without a matching
               activity it falls back to the system App Info page. Routing
               it to MainActivity opens the in-app surface the user actually
@@ -375,7 +361,7 @@
             android:name=".send.SendActivity"
             android:exported="true"
             android:label="@string/send_activity_label"
-            android:theme="@style/Theme.Bada.SendSheet">
+            android:theme="@style/Theme.AirFree.SendSheet">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -391,7 +377,7 @@
         <!--
           In-app sender screen. Launched ONLY from inside the app
           (SendReceiveFragment "Send files" / "Send folder") — the original
-          full-screen Bada presentation, NOT the bottom sheet. exported=false +
+          full-screen AirFree presentation, NOT the bottom sheet. exported=false +
           no intent-filter so the system share sheet never routes here; the
           external ACTION_SEND path stays on the bottom-sheet SendActivity above.
         -->
@@ -399,7 +385,7 @@
             android:name=".send.SendActivityInApp"
             android:exported="false"
             android:label="@string/send_activity_label"
-            android:theme="@style/Theme.Bada.SendInApp" />
+            android:theme="@style/Theme.AirFree.SendInApp" />
 
         <!--
           QR-code display screen launched from SendActivity (#24 + #20).
@@ -415,7 +401,7 @@
           NFC link broadcast HCE service (NDEF Tag Application D2760000850101).
 
           Emulates an NFC Forum Type-4 NDEF tag whose single URI record is the
-          current Bada pairing link (NfcLinkHolder.currentUrl, set by the Send UI
+          current AirFree pairing link (NfcLinkHolder.currentUrl, set by the Send UI
           while the QR/link panel is showing). An iPhone tapped to the back of
           this phone background-reads the URI and opens it in Safari (the URL is
           an ordinary web link, not an App Store / universal link).
@@ -426,7 +412,7 @@
           here, so this is not a third-party-callable surface.
         -->
         <service
-            android:name=".nfc.BadaNdefApduService"
+            android:name=".nfc.AirFreeNdefApduService"
             android:exported="true"
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
@@ -434,13 +420,13 @@
             </intent-filter>
             <meta-data
                 android:name="android.nfc.cardemulation.host_apdu_service"
-                android:resource="@xml/bada_apduservice" />
+                android:resource="@xml/airfree_apduservice" />
         </service>
 
         <!--
           Quick Share NFC tap-to-share HCE receiver (AID F00000FE2C).
 
-          A stock Quick Share sender in reader-mode (or Bada's own reader-mode)
+          A stock Quick Share sender in reader-mode (or AirFree's own reader-mode)
           tapped to this phone SELECTs F00000FE2C and reads our hhwv response
           (deym NfcTag + Wi-Fi-LAN rxInstantConnectionAdv), then connects to our
           live TcpReceiverServer over Wi-Fi-LAN. The HCE only emits a real tag
@@ -454,7 +440,7 @@
           the AID group with the platform.
         -->
         <service
-            android:name=".nfc.BadaTapHceService"
+            android:name=".nfc.AirFreeTapHceService"
             android:exported="true"
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
@@ -462,7 +448,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.nfc.cardemulation.host_apdu_service"
-                android:resource="@xml/bada_tap_apduservice" />
+                android:resource="@xml/airfree_tap_apduservice" />
         </service>
 
         <!--
@@ -471,7 +457,7 @@
 
           Launched by the consent notification's content PendingIntent
           (background path) and programmatically by ConsentCoordinator
-          when Bada is foregrounded (#151 modal path). Both
+          when AirFree is foregrounded (#151 modal path). Both
           launches are package-scoped, so exported=false.
 
           launchMode is `singleTop` so a coordinator-driven re-launch
@@ -503,7 +489,7 @@
             android:showOnLockScreen="true"
             android:taskAffinity=""
             android:turnScreenOn="true"
-            android:theme="@style/Theme.Bada.ReceiveSheet"
+            android:theme="@style/Theme.AirFree.ReceiveSheet"
             android:label="@string/consent_activity_label" />
 
         <!--
@@ -522,9 +508,9 @@
           the receiver's always-visible override) for accessibility.
         -->
         <service
-            android:name=".tile.BadaQuickShareTileService"
+            android:name=".tile.AirFreeQuickShareTileService"
             android:exported="true"
-            android:icon="@drawable/ic_qs_bada_visible"
+            android:icon="@drawable/ic_qs_airfree_visible"
             android:label="@string/qs_tile_label"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -554,8 +540,8 @@
 
           exported=true is required ONLY for the NDEF_DISCOVERED intent-filter: the OS launches this
           Activity FROM CLOSED on the reading phone via our AAR after a both-background tap. Android
-          maps a TNF_EXTERNAL_TYPE record urn:nfc:ext:bada.dev:namecard to the URI
-          vnd.android.nfc://ext/bada.dev:namecard, which this filter matches (scheme/host/pathPrefix
+          maps a TNF_EXTERNAL_TYPE record urn:nfc:ext:airfree.dev:namecard to the URI
+          vnd.android.nfc://ext/airfree.dev:namecard, which this filter matches (scheme/host/pathPrefix
           form is the documented one). Lowercase throughout to avoid case-normalization misses.
 
           SECURITY: because it is exported, this activity trusts NOTHING from its Intent beyond the
@@ -569,14 +555,14 @@
             android:launchMode="singleTop"
             android:excludeFromRecents="true"
             android:label="@string/name_card_activity_label"
-            android:theme="@style/Theme.Bada.NameCardTransfer">
+            android:theme="@style/Theme.AirFree.NameCardTransfer">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data
                     android:scheme="vnd.android.nfc"
                     android:host="ext"
-                    android:pathPrefix="/bada.dev:namecard" />
+                    android:pathPrefix="/airfree.dev:namecard" />
             </intent-filter>
         </activity>
 
@@ -594,7 +580,7 @@
 
         <!--
           Name Card tap HCE (proprietary AID F0534443415244). The card side of
-          the NameDrop-style tap-to-share-contacts feature: another Bada phone in
+          the NameDrop-style tap-to-share-contacts feature: another AirFree phone in
           reader-mode SELECTs this AID + EXCHANGEs to read our rendezvous token
           (NameCardHceService), waking both apps; the contact card itself is then
           swapped over Bluetooth. Distinct AID from the iPhone NDEF service and the
@@ -611,7 +597,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.nfc.cardemulation.host_apdu_service"
-                android:resource="@xml/bada_namecard_apduservice" />
+                android:resource="@xml/airfree_namecard_apduservice" />
         </service>
 
         <!-- Receives PackageInstaller status for the auto-update "Download &
