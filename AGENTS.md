@@ -143,6 +143,7 @@ Acceptance criteria:
 
 ## Conventions
 
+- **Commit target**: commit all work to the `testing-main` branch, not `main`. The user merges `testing-main` into `main` via a pull request; never commit or push directly to `main`.
 - **Branch names**: `<type>/<short-description>` where type is `feature`, `bugfix`, `hotfix`, `refactor`, `docs`, `test`, or `chore`. Issue-scoped branches include the issue number, e.g. `bugfix/issue-83-discovery-real-devices`.
 - **Commit / PR messages**: English only. No AI attribution lines (no `Co-Authored-By: Claude`, no `Generated with` blurbs). Use the `feat:` / `fix:` / `chore:` / `refactor:` / `docs:` / `test:` prefix that matches the change.
 - **Release process**: when preparing a release, make the Git release tag version match the app version defined in Gradle. In this repo, the source of truth is `app/build.gradle.kts` `defaultConfig.versionName`; if you bump the release tag to `vX.Y.Z`, update `versionName` to the same `X.Y.Z` variant string in the same change and verify they stay aligned.
